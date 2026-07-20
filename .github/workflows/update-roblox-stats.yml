@@ -3,7 +3,7 @@ name: Update Roblox game stats
 on:
   schedule:
     # Runs once a day at 06:00 UTC. Edit the cron expression to change timing.
-    - cron: '0 6 * * *'
+    - cron: '0 6 * * 1'
   workflow_dispatch: {} # lets you trigger it manually from the Actions tab
 
 permissions:

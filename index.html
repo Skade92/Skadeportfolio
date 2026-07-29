@@ -500,6 +500,7 @@
   .asset-card:hover { border-color: var(--accent); transform: translateY(-3px); }
 
   .asset-thumb {
+    position: relative;
     height: 100px;
     width: 100%;
     display: flex;
@@ -508,6 +509,24 @@
     overflow: hidden;
     background: var(--border);
   }
+
+  /* ---- THUMBS % BADGE directly on the game card thumbnail ---- */
+  .thumb-like-badge {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    z-index: 2;
+    font-size: 0.66rem;
+    font-weight: 700;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    backdrop-filter: blur(4px);
+    line-height: 1.4;
+  }
+
+  .thumb-like-badge.like-green  { color: var(--green);  background: rgba(74,222,128,0.22);  border: 1px solid rgba(74,222,128,0.4); }
+  .thumb-like-badge.like-orange { color: var(--orange);  background: rgba(245,166,35,0.22); border: 1px solid rgba(245,166,35,0.4); }
+  .thumb-like-badge.like-red    { color: var(--red);     background: rgba(255,91,127,0.22); border: 1px solid rgba(255,91,127,0.4); }
 
   .asset-thumb img {
     width: 100%;
@@ -716,7 +735,7 @@
   /* ---- MODAL LIVE STATS (visits / actives / created) ---- */
   .asset-modal-stats {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
     gap: 0.6rem;
     margin-bottom: 1.3rem;
   }
@@ -763,6 +782,9 @@
 
   .modal-stat.loading .msval,
   .modal-stat.loading .msval-date { color: var(--muted); font-family: 'DM Sans', sans-serif; font-weight: 500; }
+
+  .modal-stat .msval.msval-up   { color: var(--green); }
+  .modal-stat .msval.msval-down { color: var(--red); }
 
   /* ---- SORT CONTROLS (games grid) ---- */
   .sort-controls {
@@ -832,6 +854,40 @@
   .profile-header-pfp img { width: 100%; height: 100%; object-fit: cover; }
 
   .profile-header-info { flex: 1; min-width: 220px; }
+
+  /* Current avatar preview, shown on the right side of the bio. */
+  .profile-header-current-avatar {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: auto;
+  }
+
+  .profile-header-current-avatar img {
+    width: 96px;
+    height: 96px;
+    object-fit: cover;
+    border-radius: 14px;
+    border: 2px solid var(--border);
+    background: var(--card);
+  }
+
+  .profile-header-current-avatar-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    text-align: center;
+  }
+
+  /* Remove the big page-section gaps between the bio, avatars, and
+     emotes/animations blocks on the profile page — they stack tightly. */
+  #page-profile #profile { padding-bottom: 0; }
+  #page-profile #profile-avatars { padding-top: 0; padding-bottom: 0; }
+  #page-profile #profile-emotes-animations { padding-top: 0; }
 
   .profile-header-info h3 {
     font-family: 'Syne', sans-serif;
@@ -1129,6 +1185,19 @@
   }
 
   .community-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+
+  .community-card { position: relative; }
+
+  .community-card-badge {
+    position: absolute;
+    top: 0.9rem;
+    right: 0.9rem;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--border);
+  }
 
   .community-card-top {
     display: flex;
@@ -1603,6 +1672,10 @@
           <p class="profile-bio" id="profile-bio">Loading bio…</p>
           <a id="profile-roblox-link" class="btn-primary" href="https://www.roblox.com/users/885975114/profile" target="_blank">View on Roblox ↗</a>
         </div>
+        <div class="profile-header-current-avatar">
+          <img src="assets/avatars/OG Sweat boy.png" alt="Current avatar"/>
+          <span class="profile-header-current-avatar-label">Current Avatar</span>
+        </div>
       </div>
 
       <div class="profile-stats-grid reveal" id="profile-stats-grid"></div>
@@ -1635,14 +1708,14 @@
     </section>
 
     <section id="profile-emotes-animations">
-      <button class="collapse-toggle" id="emotes-toggle" type="button">
-        <span>🕺 Show Emotes</span><span class="chev">▾</span>
+      <button class="collapse-toggle open" id="emotes-toggle" type="button">
+        <span>🕺 Hide Emotes</span><span class="chev">▾</span>
       </button>
-      <button class="collapse-toggle" id="animations-toggle" type="button" style="margin-left:0.6rem;">
-        <span>🎬 Show Animations</span><span class="chev">▾</span>
+      <button class="collapse-toggle open" id="animations-toggle" type="button" style="margin-left:0.6rem;">
+        <span>🎬 Hide Animations</span><span class="chev">▾</span>
       </button>
 
-      <div class="collapse-panel" id="emotes-panel">
+      <div class="collapse-panel open" id="emotes-panel">
         <h3 class="subheading reveal">My Emotes</h3>
         <p class="games-tested-count reveal" id="emotes-count"></p>
         <div class="sort-controls reveal">
@@ -1656,7 +1729,7 @@
         <div class="avatar-grid reveal" id="emotes-grid"></div>
       </div>
 
-      <div class="collapse-panel" id="animations-panel">
+      <div class="collapse-panel open" id="animations-panel">
         <h3 class="subheading reveal">My Animations</h3>
         <p class="games-tested-count reveal" id="animations-count"></p>
         <div class="sort-controls reveal">
@@ -2075,10 +2148,12 @@
         ? `<div class="asset-meta asset-meta-tight"><strong>Group:</strong> ${groupName}</div>`
         : '';
 
+      const likeBadge = isGame ? buildLikeBadgeHtml(extractPlaceId(item.url)) : '';
+
       const card = document.createElement('div');
       card.className = 'asset-card reveal visible';
       card.innerHTML = `
-        <div class="asset-thumb" ${thumbStyle}>${thumb}</div>
+        <div class="asset-thumb" ${thumbStyle}>${thumb}${likeBadge}</div>
         <div class="asset-info">
           <div class="asset-name">${item.name}</div>
           <div class="asset-meta">${meta}</div>
@@ -2200,6 +2275,7 @@
       if (cGrid) {
         cGrid.innerHTML = communities.map(c => `
           <div class="community-card">
+            <img class="community-card-badge" src="${c.image || 'assets/profile.png'}" alt="${c.name} icon"/>
             <div class="community-card-top">
               <span class="community-card-icon">${c.icon || '👥'}</span>
               <div>
@@ -2570,6 +2646,16 @@
   function renderModalStats(placeId) {
     const stats = placeId ? gameStats[placeId] : null;
     if (stats) {
+      const ls = likeStats(placeId);
+      const voteCells = ls ? `
+        <div class="modal-stat">
+          <div class="msval msval-up">👍 ${formatNumber(ls.up)}</div>
+          <div class="mslabel">Upvotes</div>
+        </div>
+        <div class="modal-stat">
+          <div class="msval msval-down">👎 ${formatNumber(ls.down)}</div>
+          <div class="mslabel">Downvotes</div>
+        </div>` : '';
       assetModalStats.innerHTML = `
         <div class="modal-stat">
           <div class="msval">${formatNumber(stats.visits)}</div>
@@ -2582,7 +2668,7 @@
         <div class="modal-stat">
           <div class="msval-date">${formatDate(stats.created)}</div>
           <div class="mslabel">Created</div>
-        </div>`;
+        </div>${voteCells}`;
     } else if (statsLoaded) {
       assetModalStats.innerHTML = `
         <div class="modal-stat loading"><div class="msval-date">Unavailable</div><div class="mslabel">Total Visits</div></div>
@@ -2596,28 +2682,39 @@
     }
   }
 
-  /* ---- LIKE % BADGE — green 51%+, orange 25-50%, red under 25%.
+  /* ---- LIKE % — green 51%+, orange 25-50%, red under 25%.
      Reads upVotes/downVotes from data/game-stats.json (added by
-     scripts/fetch-roblox-stats.mjs). Hidden entirely if that data
-     isn't available yet for a given game. ---- */
-  function renderLikeBadge(placeId) {
+     scripts/fetch-roblox-stats.mjs). Returns null if that data isn't
+     available yet for a given game. Shared by the card badge + modal. ---- */
+  function likeStats(placeId) {
     const stats = placeId ? gameStats[placeId] : null;
     const up = stats ? stats.upVotes : undefined;
     const down = stats ? stats.downVotes : undefined;
     const total = (up || 0) + (down || 0);
-
-    if (typeof up !== 'number' || typeof down !== 'number' || total === 0) {
-      assetModalLikeRow.classList.remove('visible');
-      return;
-    }
+    if (typeof up !== 'number' || typeof down !== 'number' || total === 0) return null;
 
     const pct = Math.round((up / total) * 100);
     let cls = 'like-red';
     if (pct >= 51) cls = 'like-green';
     else if (pct >= 25) cls = 'like-orange';
+    return { up, down, total, pct, cls };
+  }
 
-    assetModalLikeBadge.className = `like-badge ${cls}`;
-    assetModalLikeBadge.textContent = `👍 ${pct}% liked`;
+  /* Small pill shown directly on the game thumbnail in the Testing grid. */
+  function buildLikeBadgeHtml(placeId) {
+    const ls = likeStats(placeId);
+    if (!ls) return '';
+    return `<span class="thumb-like-badge ${ls.cls}">👍 ${ls.pct}%</span>`;
+  }
+
+  function renderLikeBadge(placeId) {
+    const ls = likeStats(placeId);
+    if (!ls) {
+      assetModalLikeRow.classList.remove('visible');
+      return;
+    }
+    assetModalLikeBadge.className = `like-badge ${ls.cls}`;
+    assetModalLikeBadge.textContent = `👍 ${ls.pct}% liked`;
     assetModalLikeRow.classList.add('visible');
   }
 

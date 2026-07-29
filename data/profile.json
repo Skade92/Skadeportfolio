@@ -7,7 +7,7 @@
   "stats": {
     "followers": 94,
     "following": 59,
-    "friends": 59,
+    "friends": 60,
     "badges": "1700+",
     "joined": "2018",
     "groups": "80+"
@@ -18,14 +18,16 @@
       "role": "Owner",
       "description": "My own clothing / avatar item group — this is where I'll be posting original clothing and avatar items down the line. Also a hub for me and my friends.",
       "url": "https://www.roblox.com/communities/10729675/Skades-Clothing#!/about",
-      "icon": "👕"
+      "icon": "👕",
+      "image": "assets/profile.png"
     },
     {
       "name": "40% game by Skade92",
       "role": "Owner",
       "description": "A 40% off group so anyone in it saves Robux on purchases. Also doubles as a hub for me and my friends.",
       "url": "https://www.roblox.com/communities/35436401/40-game-by-Skade92#!/about",
-      "icon": "💰"
+      "icon": "💰",
+      "image": "assets/profile.png"
     }
   ]
 }

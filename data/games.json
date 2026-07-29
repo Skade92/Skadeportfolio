@@ -428,8 +428,8 @@
     "url": "https://www.roblox.com/games/16060879782/NEW-Toilet-Punch-Simulator",
     "dev": "Habit Games",
     "img": "assets/games/toilet-punch-simulator.png",
-    "group": "Habit Games",
-    "groupUrl": "https://www.roblox.com/communities/12860813/Habit-Games#!/about"
+    "group": "Habit Memes",
+    "groupUrl": "https://www.roblox.com/communities/33752485/Habit-Memes#!/about"
   },
   {
     "name": "Build a Mukbang",
@@ -641,7 +641,7 @@
   },
   {
     "name": "Launch Anything",
-    "url": "https://www.roblox.com/games/128684318683332/Launch-Anything-Dev",
+    "url": "https://www.roblox.com/games/137221954062466/Launch-Anything",
     "dev": "awesomely",
     "img": "assets/games/launch-anything.png",
     "group": "NextPlay Games",
@@ -737,7 +737,7 @@
   },
     {
     "name": "Freeze or Die",
-    "url": "https://www.roblox.com/games/90533479785358/Freezeordietesting",
+    "url": "https://www.roblox.com/games/123346546383827/FREEZE-or-DIE",
     "dev": "distancelolol",
     "img": "assets/games/Freeze or Die.png",
     "group": "Scripted Pencils",
@@ -759,7 +759,7 @@
     "group": "Over Forester",
     "groupUrl": "https://www.roblox.com/communities/1003429730/Over-Forester#!/about"
   },
-      {
+    {
     "name": "Build An Anthill!",
     "url": "https://www.roblox.com/games/89610866334756/Build-an-Anthill",
     "dev": "codingdominus",
@@ -767,7 +767,7 @@
     "group": "Centvy Studios",
     "groupUrl": "https://www.roblox.com/communities/670658770/Centvy-Studios#!/about"
   },
-      {
+    {
     "name": "Build your City",
     "url": "https://www.roblox.com/games/90554449309730/Fortify-Tower-Defense-DEV",
     "dev": "bigometer",
@@ -775,11 +775,35 @@
     "group": "METER GAMES",
     "groupUrl": "https://www.roblox.com/communities/32317122/METER-GAMES#!/about"
   },
-      {
+    {
     "name": "Unbox Your Car",
     "url": "https://www.roblox.com/games/138064211947107/Unbox-Your-Car",
     "dev": "Habit Games",
     "img": "assets/games/Unbox Your Car.png",
+    "group": "Habit Games",
+    "groupUrl": "https://www.roblox.com/communities/12860813/Habit-Games#!/about"
+  },
+    {
+    "name": "Spelling Bee",
+    "url": "https://www.roblox.com/games/125892864533595/Spelling-Bee-test",
+    "dev": "hanif9010",
+    "img": "assets/games/Spelling Bee.png",
+    "group": "Kami x Hanox",
+    "groupUrl": "https://www.roblox.com/communities/919947279/Kami-x-Hanox#!/about"
+  },
+    {
+    "name": "Minigames Blitz",
+    "url": "https://www.roblox.com/games/101426709628287/Minigames-Blitz",
+    "dev": "a.brick.wall",
+    "img": "assets/games/Build your City.png",
+    "group": "trynaGames",
+    "groupUrl": "https://www.roblox.com/communities/3922924/trynaGames#!/about"
+  },
+    {
+    "name": "Car Training",
+    "url": "https://www.roblox.com/games/117539983954080/1-Car-Training",
+    "dev": "Habit Games",
+    "img": "assets/games/Car Training.png",
     "group": "Habit Games",
     "groupUrl": "https://www.roblox.com/communities/12860813/Habit-Games#!/about"
   }

@@ -19,6 +19,8 @@
     --text: #e8eaf0;
     --muted: #7a7f96;
     --red: #ff5b7f;
+    --green: #4ade80;
+    --orange: #f5a623;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -128,6 +130,8 @@
     border-radius: 50%;
     border: 3px solid var(--accent);
     box-shadow: 0 0 0 6px rgba(91,140,255,0.12), 0 0 40px rgba(91,140,255,0.25);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
     overflow: hidden;
     margin-bottom: 2rem;
     background: var(--card);
@@ -135,6 +139,11 @@
     align-items: center;
     justify-content: center;
     animation: fadeDown 0.8s ease both;
+  }
+
+  .pfp-wrapper:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 0 6px rgba(91,140,255,0.2), 0 0 50px rgba(91,140,255,0.35);
   }
 
   .pfp-wrapper img {
@@ -797,6 +806,495 @@
     cursor: not-allowed;
   }
 
+  /* ---- ROBLOX PROFILE PAGE ---- */
+  .profile-header {
+    display: flex;
+    align-items: center;
+    gap: 1.8rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 1.8rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .profile-header-pfp {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--accent);
+    box-shadow: 0 0 0 5px rgba(91,140,255,0.12);
+    flex-shrink: 0;
+  }
+
+  .profile-header-pfp img { width: 100%; height: 100%; object-fit: cover; }
+
+  .profile-header-info { flex: 1; min-width: 220px; }
+
+  .profile-header-info h3 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.4rem;
+    margin-bottom: 0.15rem;
+  }
+
+  #profile-username {
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+  }
+
+  .profile-bio {
+    color: var(--muted);
+    font-size: 0.88rem;
+    margin-bottom: 1rem;
+    max-width: 520px;
+  }
+
+  .profile-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 0.9rem;
+    margin-top: 1.5rem;
+  }
+
+  .profile-stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .profile-stat-value {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.3rem;
+    color: var(--text);
+  }
+
+  .profile-stat-label {
+    font-size: 0.7rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-top: 0.25rem;
+  }
+
+  /* ---- AVATARS GRID + MODAL ---- */
+  .avatar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1rem;
+    margin-top: 1.2rem;
+  }
+
+  .avatar-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color 0.2s, transform 0.2s;
+    text-align: center;
+  }
+
+  .avatar-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+
+  .avatar-card-thumb {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .avatar-card-thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+  .avatar-card-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 0.7rem 0.5rem;
+  }
+
+  .avatar-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(6,7,10,0.72);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+
+  .avatar-modal-overlay.open { opacity: 1; pointer-events: auto; }
+
+  .avatar-modal {
+    width: 100%;
+    max-width: 640px;
+    max-height: 85vh;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    transform: translateY(16px) scale(0.97);
+    transition: transform 0.25s ease;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+
+  .avatar-modal-overlay.open .avatar-modal { transform: translateY(0) scale(1); }
+
+  .avatar-modal-left {
+    width: 42%;
+    flex-shrink: 0;
+    padding: 1.8rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: var(--card);
+    border-right: 1px solid var(--border);
+  }
+
+  .avatar-modal-thumb {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 14px;
+    overflow: hidden;
+    background: var(--border);
+    margin-bottom: 1rem;
+  }
+
+  .avatar-modal-thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+  .avatar-modal-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .avatar-modal-total {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--gold);
+    background: rgba(245,197,66,0.1);
+    border: 1px solid rgba(245,197,66,0.25);
+    padding: 0.45rem 0.9rem;
+    border-radius: 999px;
+  }
+
+  .avatar-modal-right {
+    flex: 1;
+    padding: 1.8rem 1.4rem;
+    overflow-y: auto;
+  }
+
+  .avatar-modal-items-label {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    font-weight: 600;
+    margin-bottom: 0.9rem;
+  }
+
+  .avatar-modal-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--border);
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .avatar-modal-item:last-child { border-bottom: none; }
+
+  .avatar-modal-item-thumb {
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--border);
+    flex-shrink: 0;
+  }
+
+  .avatar-modal-item-thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+  .avatar-modal-item-name {
+    font-size: 0.83rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .avatar-modal-item-price {
+    font-size: 0.74rem;
+    color: var(--gold);
+    font-weight: 600;
+    margin-left: auto;
+    padding-left: 0.6rem;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 640px) {
+    .avatar-modal { flex-direction: column; max-height: 90vh; overflow-y: auto; }
+    .avatar-modal-left { width: 100%; border-right: none; border-bottom: 1px solid var(--border); }
+  }
+
+  /* ---- ROBUX ICON (used anywhere a price is shown) ---- */
+  .robux-icon {
+    width: 13px;
+    height: 13px;
+    object-fit: contain;
+    display: inline-block;
+    vertical-align: -1px;
+    margin-right: 0.2em;
+  }
+
+  /* ---- AVATAR CARD PRICE BADGE (total Robux for that avatar) ---- */
+  .avatar-card-price {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--gold);
+    padding: 0 0.7rem 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ---- GENERIC PRICE GRID (reused by Emotes / Animations) ---- */
+  .avatar-card-price.item-price {
+    padding: 0 0.5rem 0.6rem;
+  }
+
+  /* ---- COLLAPSIBLE TOGGLE (Emotes / Animations reveal buttons) ---- */
+  .collapse-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.55rem 1.1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--text);
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.82rem;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .collapse-toggle:hover { border-color: var(--accent); color: var(--accent); }
+
+  .collapse-toggle .chev { transition: transform 0.2s; }
+
+  .collapse-toggle.open .chev { transform: rotate(180deg); }
+
+  .collapse-panel {
+    display: none;
+    margin-top: 1.2rem;
+  }
+
+  .collapse-panel.open { display: block; }
+
+  /* ---- MY COMMUNITIES ---- */
+  .community-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+    margin-top: 1.2rem;
+  }
+
+  .community-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.4rem 1.3rem;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .community-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+
+  .community-card-top {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .community-card-icon { font-size: 1.5rem; }
+
+  .community-card-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.98rem;
+    color: var(--text);
+  }
+
+  .community-card-role {
+    display: inline-block;
+    margin-top: 0.15rem;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--gold);
+    background: rgba(245,197,66,0.1);
+    border: 1px solid rgba(245,197,66,0.25);
+    padding: 0.12rem 0.5rem;
+    border-radius: 999px;
+  }
+
+  .community-card-desc {
+    font-size: 0.8rem;
+    color: var(--muted);
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+
+  .community-card-link {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .community-card-link:hover { text-decoration: underline; }
+
+  /* ---- LIKE % BADGE (game preview modal) ---- */
+  .like-badge-row {
+    display: none;
+    margin-bottom: 0.9rem;
+  }
+
+  .like-badge-row.visible { display: block; }
+
+  .like-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+  }
+
+  .like-badge.like-green { color: var(--green); background: rgba(74,222,128,0.12); border: 1px solid rgba(74,222,128,0.3); }
+  .like-badge.like-orange { color: var(--orange); background: rgba(245,166,35,0.12); border: 1px solid rgba(245,166,35,0.3); }
+  .like-badge.like-red { color: var(--red); background: rgba(255,91,127,0.12); border: 1px solid rgba(255,91,127,0.3); }
+
+  /* ---- PODIUM (top 3 games by visits) ---- */
+  .podium-wrap {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    align-items: end;
+    margin: 1.5rem 0 2.5rem;
+    max-width: 720px;
+  }
+
+  .podium-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.2s, border-color 0.2s;
+    position: relative;
+  }
+
+  .podium-card:hover { transform: translateY(-4px); }
+
+  .podium-rank-badge {
+    position: absolute;
+    top: 0.6rem;
+    left: 0.6rem;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 0.85rem;
+    color: #14161c;
+    z-index: 2;
+  }
+
+  .podium-card.gold {
+    order: 2;
+    border-color: rgba(245,197,66,0.5);
+    box-shadow: 0 0 30px rgba(245,197,66,0.15);
+  }
+  .podium-card.gold .podium-rank-badge { background: linear-gradient(135deg,#f5c542,#e8a93a); }
+  .podium-card.gold .podium-thumb { height: 130px; }
+
+  .podium-card.silver {
+    order: 1;
+    align-self: end;
+    border-color: rgba(192,197,206,0.4);
+  }
+  .podium-card.silver .podium-rank-badge { background: linear-gradient(135deg,#d7dbe2,#a7adb8); }
+  .podium-card.silver .podium-thumb { height: 100px; }
+
+  .podium-card.bronze {
+    order: 3;
+    align-self: end;
+    border-color: rgba(205,127,80,0.4);
+  }
+  .podium-card.bronze .podium-rank-badge { background: linear-gradient(135deg,#cd7f50,#a8623a); }
+  .podium-card.bronze .podium-thumb { height: 100px; }
+
+  .podium-thumb {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--border);
+  }
+
+  .podium-thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+  .podium-info { padding: 0.75rem 0.6rem; }
+
+  .podium-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.82rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .podium-metric {
+    font-size: 0.72rem;
+    color: var(--muted);
+  }
+
+  .podium-metric strong { color: var(--gold); }
+
+  @media (max-width: 560px) {
+    .podium-wrap { grid-template-columns: 1fr; max-width: 280px; margin-left: auto; margin-right: auto; }
+    .podium-card.gold, .podium-card.silver, .podium-card.bronze { order: unset; align-self: stretch; }
+  }
+
   /* ---- INLINE HYPERLINKS ---- */
   .inline-link {
     color: var(--accent);
@@ -940,7 +1438,7 @@
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo" data-page="home">skade92</a>
+  <a class="nav-logo" data-page="profile">skade92</a>
   <ul class="nav-links">
     <li><a data-page="home">About Me</a></li>
     <li><a data-page="beta">Testing</a></li>
@@ -956,7 +1454,7 @@
 <div class="hero" id="hero">
   <div class="hero-glow"></div>
 
-  <div class="pfp-wrapper">
+  <div class="pfp-wrapper" data-page="profile">
     <img src="assets/profile.png" alt="Skade profile picture"/>
   </div>
 
@@ -1085,6 +1583,95 @@
 
   </div>
 
+  <!-- ROBLOX PROFILE -->
+  <div class="page" id="page-profile">
+    <section id="profile">
+      <p class="section-label reveal">Roblox</p>
+      <h2 class="section-title reveal">My Roblox Profile</h2>
+
+      <!--
+        Profile header info is loaded from data/profile.json — edit the
+        values there (no HTML editing needed) to update everything below.
+      -->
+      <div class="profile-header reveal">
+        <div class="profile-header-pfp">
+          <img id="profile-avatar-img" src="assets/profile.png" alt="Skade Roblox avatar"/>
+        </div>
+        <div class="profile-header-info">
+          <h3 id="profile-display-name">Skade</h3>
+          <p id="profile-username">@Skade92</p>
+          <p class="profile-bio" id="profile-bio">Loading bio…</p>
+          <a id="profile-roblox-link" class="btn-primary" href="https://www.roblox.com/users/885975114/profile" target="_blank">View on Roblox ↗</a>
+        </div>
+      </div>
+
+      <div class="profile-stats-grid reveal" id="profile-stats-grid"></div>
+
+      <!--
+        My Communities — rendered from the `communities` array inside
+        data/profile.json. Add/edit a group there (name/role/description/
+        url/icon), no HTML editing needed.
+      -->
+      <h3 class="subheading reveal">My Communities</h3>
+      <div class="community-grid reveal" id="communities-grid"></div>
+    </section>
+
+    <section id="profile-avatars">
+      <h3 class="subheading reveal">My Avatars</h3>
+      <p class="games-tested-count reveal" id="avatars-count"></p>
+      <!--
+        Rendered from data/avatars.json — add an avatar image, name, and
+        its items (each with image/name/price/link) there, no HTML editing
+        needed. Clicking a card opens the item breakdown + total price.
+      -->
+      <div class="sort-controls reveal">
+        <span class="sort-label">Sort by:</span>
+        <button class="sort-btn" data-avatar-sort="default">Default</button>
+        <button class="sort-btn" data-avatar-sort="price-asc">Robux (Low to High)</button>
+        <button class="sort-btn" data-avatar-sort="price-desc">Robux (High to Low)</button>
+        <button class="sort-btn" data-avatar-sort="alpha">Alphabetical (A-&gt;Z)</button>
+      </div>
+      <div class="avatar-grid reveal" id="avatars-grid"></div>
+    </section>
+
+    <section id="profile-emotes-animations">
+      <button class="collapse-toggle" id="emotes-toggle" type="button">
+        <span>🕺 Show Emotes</span><span class="chev">▾</span>
+      </button>
+      <button class="collapse-toggle" id="animations-toggle" type="button" style="margin-left:0.6rem;">
+        <span>🎬 Show Animations</span><span class="chev">▾</span>
+      </button>
+
+      <div class="collapse-panel" id="emotes-panel">
+        <h3 class="subheading reveal">My Emotes</h3>
+        <p class="games-tested-count reveal" id="emotes-count"></p>
+        <div class="sort-controls reveal">
+          <span class="sort-label">Sort by:</span>
+          <button class="sort-btn" data-emote-sort="default">Default</button>
+          <button class="sort-btn" data-emote-sort="price-asc">Robux (Low to High)</button>
+          <button class="sort-btn" data-emote-sort="price-desc">Robux (High to Low)</button>
+          <button class="sort-btn" data-emote-sort="alpha">Alphabetical (A-&gt;Z)</button>
+        </div>
+        <!-- Rendered from data/emotes.json — click a card to open it on Roblox. -->
+        <div class="avatar-grid reveal" id="emotes-grid"></div>
+      </div>
+
+      <div class="collapse-panel" id="animations-panel">
+        <h3 class="subheading reveal">My Animations</h3>
+        <p class="games-tested-count reveal" id="animations-count"></p>
+        <div class="sort-controls reveal">
+          <span class="sort-label">Sort by:</span>
+          <button class="sort-btn" data-animation-sort="default">Default</button>
+          <button class="sort-btn" data-animation-sort="price-asc">Robux (Low to High)</button>
+          <button class="sort-btn" data-animation-sort="price-desc">Robux (High to Low)</button>
+          <button class="sort-btn" data-animation-sort="alpha">Alphabetical (A-&gt;Z)</button>
+        </div>
+        <!-- Rendered from data/animations.json — click a card to open it on Roblox. -->
+        <div class="avatar-grid reveal" id="animations-grid"></div>
+      </div>
+    </section>
+  </div>
+
   <!-- DEVELOPING -->
   <div class="page" id="page-developing">
     <section id="developing">
@@ -1170,6 +1757,13 @@
           <span class="stat-pill blue">QA Central</span>
         </div>
       </div>
+
+      <h3 class="subheading reveal">Top Performing Games</h3>
+      <!--
+        Auto-built from the 3 highest-visit games once data/game-stats.json
+        loads — no manual editing needed, it updates itself as stats refresh.
+      -->
+      <div class="podium-wrap reveal" id="podium-wrap" style="display:none;"></div>
 
       <h3 class="subheading reveal">Games I've Tested</h3>
       <p class="games-tested-count reveal" id="games-tested-count"></p>
@@ -1386,6 +1980,9 @@
     <div class="asset-modal-thumb" id="asset-modal-thumb"></div>
     <div class="asset-modal-body">
       <div class="asset-modal-name" id="asset-modal-name"></div>
+      <div class="like-badge-row" id="asset-modal-like-row">
+        <span class="like-badge" id="asset-modal-like-badge"></span>
+      </div>
       <div class="asset-modal-meta" id="asset-modal-meta"></div>
       <div class="asset-modal-group-row" id="asset-modal-group-row">
         <span class="asset-modal-group-text" id="asset-modal-group-text"></span>
@@ -1393,6 +1990,28 @@
       </div>
       <div class="asset-modal-stats" id="asset-modal-stats"></div>
       <a class="asset-modal-btn" id="asset-modal-btn" href="#" target="_blank" rel="noopener">View on Roblox →</a>
+    </div>
+  </div>
+</div>
+
+<!-- AVATAR BREAKDOWN MODAL (opens on avatar card click) -->
+<div class="avatar-modal-overlay" id="avatar-modal-overlay">
+  <div class="avatar-modal">
+    <div class="asset-modal-close" id="avatar-modal-close">✕</div>
+    <div class="avatar-modal-left">
+      <div class="avatar-modal-thumb" id="avatar-modal-thumb"></div>
+      <div class="avatar-modal-name" id="avatar-modal-name"></div>
+      <div class="avatar-modal-total" id="avatar-modal-total"></div>
+    </div>
+    <div class="avatar-modal-right">
+      <div class="avatar-modal-items-label">Items</div>
+      <div class="sort-controls" id="avatar-item-sort-controls" style="margin-bottom:0.9rem;">
+        <span class="sort-label">Sort:</span>
+        <button class="sort-btn" data-item-sort="default">Default</button>
+        <button class="sort-btn" data-item-sort="price-asc">Robux ↑</button>
+        <button class="sort-btn" data-item-sort="price-desc">Robux ↓</button>
+      </div>
+      <div class="avatar-modal-items" id="avatar-modal-items"></div>
     </div>
   </div>
 </div>
@@ -1481,6 +2100,8 @@
   const assetModalGroupRow  = document.getElementById('asset-modal-group-row');
   const assetModalGroupText = document.getElementById('asset-modal-group-text');
   const assetModalGroupBtn  = document.getElementById('asset-modal-group-btn');
+  const assetModalLikeRow   = document.getElementById('asset-modal-like-row');
+  const assetModalLikeBadge = document.getElementById('asset-modal-like-badge');
   const assetModalMeta    = document.getElementById('asset-modal-meta');
   const assetModalStats   = document.getElementById('asset-modal-stats');
   const assetModalBtn     = document.getElementById('asset-modal-btn');
@@ -1516,9 +2137,11 @@
     if (isGame) {
       currentModalPlaceId = extractPlaceId(item.url);
       renderModalStats(currentModalPlaceId);
+      renderLikeBadge(currentModalPlaceId);
     } else {
       currentModalPlaceId = null;
       assetModalStats.innerHTML = '';
+      assetModalLikeRow.classList.remove('visible');
     }
 
     assetModalOverlay.classList.add('open');
@@ -1538,6 +2161,291 @@
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') closeAssetModal();
   });
+
+  /* =====================================================================
+     ROBLOX PROFILE — header info comes from data/profile.json. Edit that
+     file (username, followers, bio, etc.) to update this section, no HTML
+     editing needed.
+     ===================================================================== */
+  async function loadProfile() {
+    try {
+      const p = await (await fetch('data/profile.json')).json();
+
+      if (p.avatarImage) document.getElementById('profile-avatar-img').src = p.avatarImage;
+      if (p.displayName) document.getElementById('profile-display-name').textContent = p.displayName;
+      if (p.username) document.getElementById('profile-username').textContent = '@' + p.username.replace(/^@/, '');
+      if (p.bio) document.getElementById('profile-bio').textContent = p.bio;
+      if (p.profileUrl) document.getElementById('profile-roblox-link').href = p.profileUrl;
+
+      const grid = document.getElementById('profile-stats-grid');
+      const stats = p.stats || {};
+      const entries = [
+        ['followers', 'Followers'],
+        ['following', 'Following'],
+        ['friends', 'Friends'],
+        ['badges', 'Badges'],
+        ['joined', 'Joined'],
+        ['groups', 'Groups']
+      ];
+      grid.innerHTML = entries
+        .filter(([key]) => stats[key] !== undefined && stats[key] !== null && stats[key] !== '')
+        .map(([key, label]) => `
+          <div class="profile-stat-card">
+            <div class="profile-stat-value">${typeof stats[key] === 'number' ? formatNumber(stats[key]) : stats[key]}</div>
+            <div class="profile-stat-label">${label}</div>
+          </div>`).join('');
+
+      const communities = p.communities || [];
+      const cGrid = document.getElementById('communities-grid');
+      if (cGrid) {
+        cGrid.innerHTML = communities.map(c => `
+          <div class="community-card">
+            <div class="community-card-top">
+              <span class="community-card-icon">${c.icon || '👥'}</span>
+              <div>
+                <div class="community-card-name">${c.name}</div>
+                ${c.role ? `<span class="community-card-role">${c.role}</span>` : ''}
+              </div>
+            </div>
+            <div class="community-card-desc">${c.description || ''}</div>
+            <a class="community-card-link" href="${c.url}" target="_blank" rel="noopener">View Community ↗</a>
+          </div>`).join('');
+      }
+    } catch (err) {
+      console.warn('Could not load data/profile.json — add that file to fill in the Roblox profile page.', err);
+    }
+  }
+
+  /* =====================================================================
+     AVATARS SHOWCASE — cards come from data/avatars.json. Each avatar has
+     a name, an image, and a list of items (name/image/price/url). Clicking
+     a card opens a breakdown modal with each item + the total price.
+     ===================================================================== */
+  const avatarModalOverlay = document.getElementById('avatar-modal-overlay');
+  const avatarModalThumb   = document.getElementById('avatar-modal-thumb');
+  const avatarModalName    = document.getElementById('avatar-modal-name');
+  const avatarModalTotal   = document.getElementById('avatar-modal-total');
+  const avatarModalItems   = document.getElementById('avatar-modal-items');
+  const avatarModalClose   = document.getElementById('avatar-modal-close');
+
+  /* Small helper — a Robux icon (assets/robux.png) placed before a price. */
+  function robuxIcon() {
+    return `<img class="robux-icon" src="assets/robux.png" alt="R$" onerror="this.style.display='none';"/>`;
+  }
+
+  /* Accepts a price as a number (1000), a numeric string ("1000"), "Free",
+     or "N/A" (unobtainable) — returns a plain number for math/sorting
+     (0 for both Free and N/A, since neither adds Robux to a total), or
+     null if the price hasn't been filled in yet. */
+  function priceValue(p) {
+    if (typeof p === 'number' && !isNaN(p)) return p;
+    if (typeof p === 'string') {
+      const t = p.trim();
+      if (t === '') return null;
+      if (/^free$/i.test(t)) return 0;
+      if (/^(n\/a|na|unobtainable|not obtainable)$/i.test(t)) return 0;
+      // Only treat it as a number if it's ACTUALLY a number once commas/
+      // spaces/R$ are stripped — anything else (like "N/A") falls through
+      // to null instead of silently becoming 0.
+      const cleaned = t.replace(/[,\s]/g, '').replace(/^R\$/i, '');
+      if (/^\d+(\.\d+)?$/.test(cleaned)) return Number(cleaned);
+    }
+    return null;
+  }
+
+  /* Returns the HTML/text to display for a price: "Free" or "N/A" as-is,
+     a number as 🅁 + formatted number, or null if unset (caller shows '—'). */
+  function priceDisplay(p) {
+    if (typeof p === 'string') {
+      const t = p.trim();
+      if (/^free$/i.test(t)) return 'Free';
+      if (/^(n\/a|na|unobtainable|not obtainable)$/i.test(t)) return 'N/A';
+    }
+    const v = priceValue(p);
+    if (v === null) return null;
+    return robuxIcon() + formatNumber(v);
+  }
+
+  function avatarTotal(avatar) {
+    return (avatar.items || []).reduce((sum, it) => sum + (priceValue(it.price) || 0), 0);
+  }
+
+  let allAvatars = [];
+  let currentAvatarSort = 'default';
+
+  function renderAvatarGrid(avatars) {
+    const grid = document.getElementById('avatars-grid');
+    grid.innerHTML = '';
+    avatars.forEach(avatar => {
+      const total = avatarTotal(avatar);
+      const card = document.createElement('div');
+      card.className = 'avatar-card reveal visible';
+      card.innerHTML = `
+        <div class="avatar-card-thumb">${avatar.image ? `<img src="${avatar.image}" alt="${avatar.name}"/>` : ''}</div>
+        <div class="avatar-card-name">${avatar.name}</div>
+        <div class="avatar-card-price">${robuxIcon()}${formatNumber(total)}</div>`;
+      card.addEventListener('click', () => openAvatarModal(avatar));
+      grid.appendChild(card);
+    });
+  }
+
+  function sortAvatars(mode) {
+    currentAvatarSort = mode;
+    let ordered;
+    if (mode === 'alpha') {
+      ordered = [...allAvatars].sort((a, b) => a.name.localeCompare(b.name));
+    } else if (mode === 'price-asc') {
+      ordered = [...allAvatars].sort((a, b) => avatarTotal(a) - avatarTotal(b));
+    } else if (mode === 'price-desc') {
+      ordered = [...allAvatars].sort((a, b) => avatarTotal(b) - avatarTotal(a));
+    } else {
+      ordered = [...allAvatars];
+    }
+    renderAvatarGrid(ordered);
+    document.querySelectorAll('[data-avatar-sort]').forEach(b => b.classList.toggle('active', b.dataset.avatarSort === mode));
+  }
+
+  async function loadAvatars() {
+    try {
+      const avatars = await (await fetch('data/avatars.json')).json();
+      allAvatars = avatars;
+      const countEl = document.getElementById('avatars-count');
+      if (countEl) countEl.innerHTML = `Amount of avatars: <strong>${avatars.length}</strong>`;
+      sortAvatars('default');
+    } catch (err) {
+      console.warn('Could not load data/avatars.json — add that file to populate the avatars showcase.', err);
+    }
+  }
+
+  document.addEventListener('click', e => {
+    const btn = e.target.closest('[data-avatar-sort]');
+    if (btn) sortAvatars(btn.dataset.avatarSort);
+  });
+
+  let currentModalItems = [];
+  let currentItemSort = 'default';
+
+  function renderAvatarModalItems(items) {
+    avatarModalItems.innerHTML = items.map(it => `
+      <a class="avatar-modal-item" href="${it.url || '#'}" target="_blank" rel="noopener">
+        <div class="avatar-modal-item-thumb">${it.image ? `<img src="${it.image}" alt="${it.name}"/>` : ''}</div>
+        <div class="avatar-modal-item-name">${it.name}</div>
+        <div class="avatar-modal-item-price">${priceDisplay(it.price) ?? '—'}</div>
+      </a>`).join('');
+  }
+
+  function sortAvatarItems(mode) {
+    currentItemSort = mode;
+    let ordered;
+    if (mode === 'price-asc') {
+      ordered = [...currentModalItems].sort((a, b) => (priceValue(a.price) ?? -Infinity) - (priceValue(b.price) ?? -Infinity));
+    } else if (mode === 'price-desc') {
+      ordered = [...currentModalItems].sort((a, b) => (priceValue(b.price) ?? -Infinity) - (priceValue(a.price) ?? -Infinity));
+    } else {
+      ordered = [...currentModalItems];
+    }
+    renderAvatarModalItems(ordered);
+    document.querySelectorAll('[data-item-sort]').forEach(b => b.classList.toggle('active', b.dataset.itemSort === mode));
+  }
+
+  document.addEventListener('click', e => {
+    const btn = e.target.closest('[data-item-sort]');
+    if (btn) sortAvatarItems(btn.dataset.itemSort);
+  });
+
+  function openAvatarModal(avatar) {
+    avatarModalThumb.innerHTML = avatar.image ? `<img src="${avatar.image}" alt="${avatar.name}"/>` : '';
+    avatarModalName.textContent = avatar.name;
+
+    const total = avatarTotal(avatar);
+    avatarModalTotal.innerHTML = `Total: ${robuxIcon()}${formatNumber(total)}`;
+
+    currentModalItems = avatar.items || [];
+    sortAvatarItems('default');
+
+    avatarModalOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeAvatarModal() {
+    avatarModalOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  avatarModalClose.addEventListener('click', closeAvatarModal);
+  avatarModalOverlay.addEventListener('click', e => {
+    if (e.target === avatarModalOverlay) closeAvatarModal();
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeAvatarModal();
+  });
+
+  /* =====================================================================
+     EMOTES + ANIMATIONS — same price-grid pattern as avatars, but each
+     card links straight to Roblox on click (no breakdown needed, the
+     price is already shown right on the card). Data comes from
+     data/emotes.json and data/animations.json.
+     ===================================================================== */
+  const collections = {
+    emote: { data: [], sort: 'default', grid: 'emotes-grid', count: 'emotes-count', label: 'emotes' },
+    animation: { data: [], sort: 'default', grid: 'animations-grid', count: 'animations-count', label: 'animations' }
+  };
+
+  function renderCollectionGrid(kind, items) {
+    const c = collections[kind];
+    const grid = document.getElementById(c.grid);
+    if (!grid) return;
+    grid.innerHTML = items.map(it => `
+      <a class="avatar-card reveal visible" style="display:block;text-decoration:none;color:inherit;" href="${it.url || '#'}" target="_blank" rel="noopener">
+        <div class="avatar-card-thumb">${it.image ? `<img src="${it.image}" alt="${it.name}"/>` : ''}</div>
+        <div class="avatar-card-name">${it.name}</div>
+        <div class="avatar-card-price item-price">${priceDisplay(it.price) ?? '—'}</div>
+      </a>`).join('');
+  }
+
+  function sortCollection(kind, mode) {
+    const c = collections[kind];
+    c.sort = mode;
+    let ordered = [...c.data];
+    if (mode === 'alpha') ordered.sort((a, b) => a.name.localeCompare(b.name));
+    else if (mode === 'price-asc') ordered.sort((a, b) => (priceValue(a.price) ?? -Infinity) - (priceValue(b.price) ?? -Infinity));
+    else if (mode === 'price-desc') ordered.sort((a, b) => (priceValue(b.price) ?? -Infinity) - (priceValue(a.price) ?? -Infinity));
+    renderCollectionGrid(kind, ordered);
+    document.querySelectorAll(`[data-${kind}-sort]`).forEach(b => b.classList.toggle('active', b.dataset[kind + 'Sort'] === mode));
+  }
+
+  async function loadCollection(kind, path) {
+    try {
+      const data = await (await fetch(path)).json();
+      collections[kind].data = data;
+      const countEl = document.getElementById(collections[kind].count);
+      if (countEl) countEl.innerHTML = `Amount of ${collections[kind].label}: <strong>${data.length}</strong>`;
+      sortCollection(kind, 'default');
+    } catch (err) {
+      console.warn(`Could not load ${path}`, err);
+    }
+  }
+
+  document.addEventListener('click', e => {
+    const emoteBtn = e.target.closest('[data-emote-sort]');
+    if (emoteBtn) sortCollection('emote', emoteBtn.dataset.emoteSort);
+    const animBtn = e.target.closest('[data-animation-sort]');
+    if (animBtn) sortCollection('animation', animBtn.dataset.animationSort);
+  });
+
+  /* Collapsible reveal buttons for the Emotes / Animations sections. */
+  function wireCollapseToggle(toggleId, panelId, labelShow, labelHide) {
+    const toggle = document.getElementById(toggleId);
+    const panel = document.getElementById(panelId);
+    if (!toggle || !panel) return;
+    toggle.addEventListener('click', () => {
+      const open = panel.classList.toggle('open');
+      toggle.classList.toggle('open', open);
+      toggle.querySelector('span').textContent = open ? labelHide : labelShow;
+    });
+  }
+  wireCollapseToggle('emotes-toggle', 'emotes-panel', '🕺 Show Emotes', '🕺 Hide Emotes');
+  wireCollapseToggle('animations-toggle', 'animations-panel', '🎬 Show Animations', '🎬 Hide Animations');
 
   /* =====================================================================
      GAME DATA + STATS — loaded from local JSON files, no live Roblox
@@ -1617,6 +2525,46 @@
 
     refreshSortButtons();
     refreshOpenModalIfNeeded();
+    buildPodium();
+  }
+
+  /* =====================================================================
+     PODIUM — top 3 games by total visits, built automatically once stats
+     are loaded. No manual editing needed; it re-sorts itself every time
+     data/game-stats.json refreshes.
+     ===================================================================== */
+  function buildPodium() {
+    const wrap = document.getElementById('podium-wrap');
+    if (!wrap || !statsLoaded) return;
+
+    const ranked = [...gamesTested]
+      .map(g => ({ game: g, pid: extractPlaceId(g.url), stats: gameStats[extractPlaceId(g.url)] }))
+      .filter(g => g.stats && typeof g.stats.visits === 'number')
+      .sort((a, b) => b.stats.visits - a.stats.visits)
+      .slice(0, 3);
+
+    if (ranked.length < 3) { wrap.style.display = 'none'; return; }
+
+    const rankClass = ['gold', 'silver', 'bronze'];
+    const rankLabel = ['1', '2', '3'];
+
+    wrap.innerHTML = ranked.map(({ game, stats }, i) => `
+      <div class="podium-card ${rankClass[i]}" data-pid="${extractPlaceId(game.url)}">
+        <div class="podium-rank-badge">${rankLabel[i]}</div>
+        <div class="podium-thumb">${game.img ? `<img src="${game.img}" alt="${game.name}"/>` : ''}</div>
+        <div class="podium-info">
+          <div class="podium-name">${game.name}</div>
+          <div class="podium-metric"><strong>${formatNumber(stats.visits)}</strong> visits</div>
+        </div>
+      </div>`).join('');
+
+    wrap.style.display = 'grid';
+
+    wrap.querySelectorAll('.podium-card').forEach((card, i) => {
+      card.addEventListener('click', () => {
+        openAssetModal(ranked[i].game, { showDesc: false, linkLabel: 'View on Roblox →', isGame: true });
+      });
+    });
   }
 
   function renderModalStats(placeId) {
@@ -1648,9 +2596,35 @@
     }
   }
 
+  /* ---- LIKE % BADGE — green 51%+, orange 25-50%, red under 25%.
+     Reads upVotes/downVotes from data/game-stats.json (added by
+     scripts/fetch-roblox-stats.mjs). Hidden entirely if that data
+     isn't available yet for a given game. ---- */
+  function renderLikeBadge(placeId) {
+    const stats = placeId ? gameStats[placeId] : null;
+    const up = stats ? stats.upVotes : undefined;
+    const down = stats ? stats.downVotes : undefined;
+    const total = (up || 0) + (down || 0);
+
+    if (typeof up !== 'number' || typeof down !== 'number' || total === 0) {
+      assetModalLikeRow.classList.remove('visible');
+      return;
+    }
+
+    const pct = Math.round((up / total) * 100);
+    let cls = 'like-red';
+    if (pct >= 51) cls = 'like-green';
+    else if (pct >= 25) cls = 'like-orange';
+
+    assetModalLikeBadge.className = `like-badge ${cls}`;
+    assetModalLikeBadge.textContent = `👍 ${pct}% liked`;
+    assetModalLikeRow.classList.add('visible');
+  }
+
   function refreshOpenModalIfNeeded() {
     if (currentModalPlaceId && assetModalOverlay.classList.contains('open')) {
       renderModalStats(currentModalPlaceId);
+      renderLikeBadge(currentModalPlaceId);
     }
   }
 
@@ -1700,6 +2674,10 @@
 
   renderAssetGrid('wiki-grid', wikisContributed, { showDesc: true, linkLabel: 'View on Fandom →' });
   loadGamesAndStats();
+  loadProfile();
+  loadAvatars();
+  loadCollection('emote', 'data/emotes.json');
+  loadCollection('animation', 'data/animations.json');
 
   /* =====================================================================
      PAGE ROUTING — nav / summary cards / hero CTA all use data-page

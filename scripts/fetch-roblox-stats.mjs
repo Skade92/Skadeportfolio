@@ -1,7 +1,8 @@
 // scripts/fetch-roblox-stats.mjs
 //
-// Fetches visits / active players / creation date for every game listed in
-// data/games.json, and writes the results to data/game-stats.json.
+// Fetches visits / active players / creation date / up & down votes for
+// every game listed in data/games.json, and writes the results to
+// data/game-stats.json.
 //
 // This is meant to run OFFLINE (your machine, or a GitHub Actions runner),
 // NOT in the browser — that's what avoids the CORS block and (mostly)
@@ -99,13 +100,36 @@ async function main() {
     await new Promise(r => setTimeout(r, 300));
   }
 
+  // Step 2b: fetch up/down votes for every universeId, batched — powers the
+  // like% badge shown in the game preview modal on the site.
+  const universeToVotes = {};
+  for (const batch of chunkArray(universeIds, 50)) {
+    try {
+      const data = await fetchJSON(`https://games.roblox.com/v1/games/votes?universeIds=${batch.join(',')}`);
+      if (!data || !Array.isArray(data.data)) throw new Error('unexpected shape: ' + JSON.stringify(data).slice(0, 200));
+      data.data.forEach(v => {
+        universeToVotes[v.id] = v;
+      });
+    } catch (err) {
+      console.error('Failed to fetch a batch of vote stats:', err.message);
+    }
+    await new Promise(r => setTimeout(r, 300));
+  }
+
   // Step 3: map back onto placeId keys.
   const stats = {};
   placeIds.forEach(pid => {
     const uid = placeIdToUniverse[pid];
     const s = uid ? universeToStats[uid] : null;
+    const v = uid ? universeToVotes[uid] : null;
     if (s) {
-      stats[pid] = { visits: s.visits, playing: s.playing, created: s.created };
+      stats[pid] = {
+        visits: s.visits,
+        playing: s.playing,
+        created: s.created,
+        upVotes: v ? v.upVotes : undefined,
+        downVotes: v ? v.downVotes : undefined
+      };
     }
   });
 

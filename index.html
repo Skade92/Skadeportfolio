@@ -778,8 +778,7 @@
   .modal-stat.loading .msval-date { color: var(--muted); font-family: 'DM Sans', sans-serif; font-weight: 500; }
 
   .modal-stat .msval.msval-up   { color: var(--green); }
-  .modal-stat .msval.msval-down { color: var(--red); white-space: normal; }
-  .modal-stat .msval.msval-down .like-badge { font-size: 0.6rem; padding: 0.1rem 0.4rem; vertical-align: 1px; }
+  .modal-stat .msval.msval-down { color: var(--red); }
 
   /* ---- SORT CONTROLS (games grid) ---- */
   .sort-controls {
@@ -2871,8 +2870,12 @@
           <div class="mslabel">Upvotes</div>
         </div>
         <div class="modal-stat">
-          <div class="msval msval-down">👎 ${formatNumber(ls.down)} <span class="like-badge ${ls.cls}">${ls.pct}%</span></div>
+          <div class="msval msval-down">👎 ${formatNumber(ls.down)}</div>
           <div class="mslabel">Downvotes</div>
+        </div>
+        <div class="modal-stat">
+          <div class="msval"><span class="like-badge ${ls.cls}">${ls.pct}%</span></div>
+          <div class="mslabel">Liked</div>
         </div>` : '';
       assetModalStats.innerHTML = `
         <div class="modal-stat">

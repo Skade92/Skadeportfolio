@@ -2,7 +2,7 @@
   {
     "name": "Island",
     "image": "assets/favorite-games/Island.png",
-    "gameUrl": "",
+    "gameUrl": "https://www.roblox.com/games/4872321990/Islands",
     "achievements": [
       "20+ Slots",
       "700+ Vending Machine Shop",
@@ -17,7 +17,7 @@
    {
     "name": "Counter Blox",
     "image": "assets/favorite-games/Counter Blox.png",
-    "gameUrl": "",
+    "gameUrl": "https://www.roblox.com/games/301549746/Counter-Blox",
     "achievements": [
       "Play since xmas 2019",
       "50k+ value",
@@ -27,7 +27,7 @@
   {
     "name": "Bedwars",
     "image": "assets/favorite-games/Bedwars.png",
-    "gameUrl": "",
+    "gameUrl": "https://www.roblox.com/games/6872265039/BedWars",
     "achievements": [
       "Played since beta (got title)",
       "200+ wins during beta",
@@ -40,7 +40,7 @@
     {
     "name": "Rivals",
     "image": "assets/favorite-games/Rivals.png",
-    "gameUrl": "",
+    "gameUrl": "https://www.roblox.com/games/17625359962/RIVALS",
     "achievements": [
       "200+ Level",
       "100+ smurf level",
@@ -53,7 +53,7 @@
   {
     "name": "Bubble Gum Simulator",
     "image": "assets/favorite-games/Bubble Gum Simulator.png",
-    "gameUrl": "",
+    "gameUrl": "https://www.roblox.com/games/2512643572/Bubble-Gum-Simulator",
     "achievements": [
       "Played during its release in 2018",
       "1st secret at 1M egg hatched",
@@ -63,7 +63,7 @@
   {
     "name": "Jailbreak",
     "image": "assets/favorite-games/Jailbreak.png",
-    "gameUrl": "",
+    "gameUrl": "https://www.roblox.com/games/606849621/Jailbreak",
     "achievements": [
       "Played after the beta",
       "Got nearly every OG car",
@@ -76,7 +76,7 @@
   {
     "name": "Mad City",
     "image": "assets/favorite-games/Mad City.png",
-    "gameUrl": "",
+    "gameUrl": "https://www.roblox.com/games/1224212277/Mad-City-Chapter-2",
     "achievements": [
       "Got nearly every car",
       "Obtained every boss limited car",
@@ -87,7 +87,7 @@
   {
     "name": "Bee Swarm Simulator",
     "image": "assets/favorite-games/Bee Swarm Simulator.png",
-    "gameUrl": "",
+    "gameUrl": "https://www.roblox.com/games/1537690962/Bee-Swarm-Simulator",
     "achievements": [
       "Played back then in 2018",
       "Level 20-21 Red Hive",
@@ -102,7 +102,7 @@
   {
     "name": "Punch Simulator",
     "image": "assets/favorite-games/Punch Simulator.png",
-    "gameUrl": "",
+    "gameUrl": "https://www.roblox.com/games/14236123211/Punch-Simulator",
     "achievements": [
       "Played since its very release",
       "3M+ egg opened",
@@ -115,7 +115,7 @@
   {
     "name": "World Zero",
     "image": "assets/favorite-games/World Zero.png",
-    "gameUrl": "",
+    "gameUrl": "https://www.roblox.com/games/2727067538/World-Zero-Anime-RPG",
     "achievements": [
       "Was maxed with all the best equipment for every class",
       "Cool exclusive items",
@@ -125,13 +125,13 @@
   {
     "name": "Flood Escape",
     "image": "assets/favorite-games/Flood Escape 2.png",
-    "gameUrl": "",
+    "gameUrl": "https://www.roblox.com/games/32990482/Flood-Escape-Classic",
     "achievements": []
   },
   {
     "name": "Roblox Deathrun",
     "image": "assets/favorite-games/Roblox Deathrun.png",
-    "gameUrl": "",
+    "gameUrl": "https://www.roblox.com/games/206640076/Deathrun",
     "achievements": [
       "300+ match played",
       "100+ match won",
@@ -141,7 +141,7 @@
   {
     "name": "Resort Tycoon",
     "image": "assets/favorite-games/Resort Tycoon.png",
-    "gameUrl": "",
+    "gameUrl": "https://www.roblox.com/games/5534174456/Tropical-Resort-Tycoon",
     "achievements": [
       "24h+ hours",
       "One of my favorite tycoons",
@@ -149,9 +149,9 @@
     ]
   },
   {
-    "name": "Pet Sim X",
+    "name": "Pet Simulator X",
     "image": "assets/favorite-games/Pet Sim X.png",
-    "gameUrl": "",
+    "gameUrl": "https://www.roblox.com/games/6284583030/Pet-Simulator-X",
     "achievements": [
       "Donated few Rainbow Storm Agonies",
       "Played until RAP came"

@@ -510,23 +510,10 @@
     background: var(--border);
   }
 
-  /* ---- THUMBS % BADGE directly on the game card thumbnail ---- */
-  .thumb-like-badge {
-    position: absolute;
-    top: 6px;
-    right: 6px;
-    z-index: 2;
-    font-size: 0.66rem;
-    font-weight: 700;
-    padding: 0.15rem 0.5rem;
-    border-radius: 999px;
-    backdrop-filter: blur(4px);
-    line-height: 1.4;
-  }
-
-  .thumb-like-badge.like-green  { color: var(--green);  background: rgba(74,222,128,0.22);  border: 1px solid rgba(74,222,128,0.4); }
-  .thumb-like-badge.like-orange { color: var(--orange);  background: rgba(245,166,35,0.22); border: 1px solid rgba(245,166,35,0.4); }
-  .thumb-like-badge.like-red    { color: var(--red);     background: rgba(255,91,127,0.22); border: 1px solid rgba(255,91,127,0.4); }
+  /* Like % badge (green/orange/red) now lives next to "View on Roblox"
+     in the card, and next to the Downvotes stat in the preview modal —
+     see .like-badge below. It's intentionally NOT on the thumbnail
+     image anymore, since some thumbnails made it unreadable. */
 
   .asset-thumb img {
     width: 100%;
@@ -562,6 +549,13 @@
   .asset-meta strong { color: var(--accent2); font-weight: 600; }
 
   .asset-meta.asset-meta-tight { margin-top: -0.45rem; }
+
+  .asset-link-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
 
   .asset-link {
     font-size: 0.74rem;
@@ -784,7 +778,8 @@
   .modal-stat.loading .msval-date { color: var(--muted); font-family: 'DM Sans', sans-serif; font-weight: 500; }
 
   .modal-stat .msval.msval-up   { color: var(--green); }
-  .modal-stat .msval.msval-down { color: var(--red); }
+  .modal-stat .msval.msval-down { color: var(--red); white-space: normal; }
+  .modal-stat .msval.msval-down .like-badge { font-size: 0.6rem; padding: 0.1rem 0.4rem; vertical-align: 1px; }
 
   /* ---- SORT CONTROLS (games grid) ---- */
   .sort-controls {
@@ -1118,6 +1113,83 @@
     .avatar-modal-left { width: 100%; border-right: none; border-bottom: 1px solid var(--border); }
   }
 
+  /* ---- FAVORITE GAMES — horizontal scroll strip above My Avatars ---- */
+  .fav-games-scroll {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0.3rem 0.2rem 1rem;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .fav-games-scroll::-webkit-scrollbar { height: 7px; }
+  .fav-games-scroll::-webkit-scrollbar-track { background: transparent; }
+  .fav-games-scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 999px; }
+
+  .fav-game-card {
+    flex: 0 0 auto;
+    width: 116px;
+    scroll-snap-align: start;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .fav-game-card-thumb {
+    width: 116px;
+    height: 116px;
+    border-radius: 14px;
+    overflow: hidden;
+    background: var(--border);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .fav-game-card:hover .fav-game-card-thumb { border-color: var(--accent); transform: translateY(-3px); }
+
+  .fav-game-card-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  .fav-game-card-thumb .letter {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.6rem;
+    color: rgba(255,255,255,0.85);
+  }
+
+  .fav-game-card-name {
+    margin-top: 0.5rem;
+    font-size: 0.76rem;
+    font-weight: 700;
+    font-family: 'Syne', sans-serif;
+    color: var(--text);
+    line-height: 1.3;
+  }
+
+  /* ---- ACHIEVEMENTS (right side of the favorite-game modal) ---- */
+  .fav-achievement-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.83rem;
+    color: var(--text);
+    line-height: 1.4;
+  }
+
+  .fav-achievement-item:last-child { border-bottom: none; }
+
+  .fav-achievement-item .fav-achievement-icon { color: var(--gold); flex-shrink: 0; }
+
+  .fav-achievement-empty {
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
   /* ---- ROBUX ICON (used anywhere a price is shown) ---- */
   .robux-icon {
     width: 13px;
@@ -1253,14 +1325,9 @@
 
   .community-card-link:hover { text-decoration: underline; }
 
-  /* ---- LIKE % BADGE (game preview modal) ---- */
-  .like-badge-row {
-    display: none;
-    margin-bottom: 0.9rem;
-  }
-
-  .like-badge-row.visible { display: block; }
-
+  /* ---- LIKE % BADGE — small pill, reused both on the Testing grid card
+     (next to "View on Roblox") and in the game preview modal (next to
+     the Downvotes stat). ---- */
   .like-badge {
     display: inline-flex;
     align-items: center;
@@ -1696,6 +1763,19 @@
       <div class="community-grid reveal" id="communities-grid"></div>
     </section>
 
+    <section id="profile-favorite-games">
+      <h3 class="subheading reveal">Games I've Played A Lot</h3>
+      <p class="games-tested-count reveal" id="favorite-games-count"></p>
+      <!--
+        Rendered from data/favorite-games.json — add a game there (name,
+        image, gameUrl, group + groupUrl, and an achievements array of
+        plain-text strings) and it shows up here automatically, no HTML
+        editing needed. Scroll the row left/right, click a card to see
+        the full breakdown + your achievements.
+      -->
+      <div class="fav-games-scroll reveal" id="favorite-games-scroll"></div>
+    </section>
+
     <section id="profile-avatars">
       <h3 class="subheading reveal">My Avatars</h3>
       <p class="games-tested-count reveal" id="avatars-count"></p>
@@ -2060,9 +2140,6 @@
     <div class="asset-modal-thumb" id="asset-modal-thumb"></div>
     <div class="asset-modal-body">
       <div class="asset-modal-name" id="asset-modal-name"></div>
-      <div class="like-badge-row" id="asset-modal-like-row">
-        <span class="like-badge" id="asset-modal-like-badge"></span>
-      </div>
       <div class="asset-modal-meta" id="asset-modal-meta"></div>
       <div class="asset-modal-group-row" id="asset-modal-group-row">
         <span class="asset-modal-group-text" id="asset-modal-group-text"></span>
@@ -2092,6 +2169,26 @@
         <button class="sort-btn" data-item-sort="price-desc">Robux ↓</button>
       </div>
       <div class="avatar-modal-items" id="avatar-modal-items"></div>
+    </div>
+  </div>
+</div>
+
+<!-- FAVORITE GAME MODAL (opens on a "Games I've Played A Lot" card click) -->
+<div class="avatar-modal-overlay" id="fav-game-modal-overlay">
+  <div class="avatar-modal">
+    <div class="asset-modal-close" id="fav-game-modal-close">✕</div>
+    <div class="avatar-modal-left">
+      <div class="avatar-modal-thumb" id="fav-game-modal-thumb"></div>
+      <div class="avatar-modal-name" id="fav-game-modal-name"></div>
+      <div class="asset-modal-group-row" id="fav-game-modal-group-row">
+        <span class="asset-modal-group-text" id="fav-game-modal-group-text"></span>
+        <a class="asset-modal-group-btn" id="fav-game-modal-group-btn" href="#" target="_blank" rel="noopener">View group →</a>
+      </div>
+      <a class="asset-modal-btn" id="fav-game-modal-btn" href="#" target="_blank" rel="noopener">Play on Roblox →</a>
+    </div>
+    <div class="avatar-modal-right">
+      <div class="avatar-modal-items-label">Achievements</div>
+      <div id="fav-game-modal-achievements"></div>
     </div>
   </div>
 </div>
@@ -2160,12 +2257,15 @@
       const card = document.createElement('div');
       card.className = 'asset-card reveal visible';
       card.innerHTML = `
-        <div class="asset-thumb" ${thumbStyle}>${thumb}${likeBadge}</div>
+        <div class="asset-thumb" ${thumbStyle}>${thumb}</div>
         <div class="asset-info">
           <div class="asset-name">${item.name}</div>
           <div class="asset-meta">${meta}</div>
           ${groupLine}
-          <div class="asset-link">${linkLabel}</div>
+          <div class="asset-link-row">
+            <span class="asset-link">${linkLabel}</span>
+            ${likeBadge}
+          </div>
         </div>`;
 
       card.addEventListener('click', () => openAssetModal(item, { showDesc, gradient, letter, linkLabel, isGame }));
@@ -2182,8 +2282,6 @@
   const assetModalGroupRow  = document.getElementById('asset-modal-group-row');
   const assetModalGroupText = document.getElementById('asset-modal-group-text');
   const assetModalGroupBtn  = document.getElementById('asset-modal-group-btn');
-  const assetModalLikeRow   = document.getElementById('asset-modal-like-row');
-  const assetModalLikeBadge = document.getElementById('asset-modal-like-badge');
   const assetModalMeta    = document.getElementById('asset-modal-meta');
   const assetModalStats   = document.getElementById('asset-modal-stats');
   const assetModalBtn     = document.getElementById('asset-modal-btn');
@@ -2219,11 +2317,9 @@
     if (isGame) {
       currentModalPlaceId = extractPlaceId(item.url);
       renderModalStats(currentModalPlaceId);
-      renderLikeBadge(currentModalPlaceId);
     } else {
       currentModalPlaceId = null;
       assetModalStats.innerHTML = '';
-      assetModalLikeRow.classList.remove('visible');
     }
 
     assetModalOverlay.classList.add('open');
@@ -2464,6 +2560,121 @@
   });
 
   /* =====================================================================
+     GAMES I'VE PLAYED A LOT — horizontal-scroll strip above My Avatars.
+     Data comes from data/favorite-games.json. Each entry is:
+       {
+         "name": "Game Name",
+         "image": "assets/favorite-games/game-name.png",
+         "gameUrl": "https://www.roblox.com/games/.../Game-Name",
+         "group": "Group Name",                (optional)
+         "groupUrl": "https://www.roblox.com/groups/.../Group-Name", (optional)
+         "achievements": ["Reached level 100", "Got the rare item", ...]
+       }
+     To add another game: copy one of the objects in that JSON array,
+     paste it as a new entry (comma-separated), and fill in your own
+     values. No HTML editing needed — the strip and modal both render
+     from this file automatically.
+     ===================================================================== */
+  const favGameModalOverlay = document.getElementById('fav-game-modal-overlay');
+  const favGameModalThumb   = document.getElementById('fav-game-modal-thumb');
+  const favGameModalName    = document.getElementById('fav-game-modal-name');
+  const favGameModalGroupRow  = document.getElementById('fav-game-modal-group-row');
+  const favGameModalGroupText = document.getElementById('fav-game-modal-group-text');
+  const favGameModalGroupBtn  = document.getElementById('fav-game-modal-group-btn');
+  const favGameModalBtn     = document.getElementById('fav-game-modal-btn');
+  const favGameModalAch     = document.getElementById('fav-game-modal-achievements');
+  const favGameModalClose   = document.getElementById('fav-game-modal-close');
+
+  async function loadFavoriteGames() {
+    try {
+      const games = await (await fetch('data/favorite-games.json')).json();
+      const countEl = document.getElementById('favorite-games-count');
+      if (countEl) countEl.innerHTML = `Amount of games: <strong>${games.length}</strong>`;
+
+      const scroll = document.getElementById('favorite-games-scroll');
+      scroll.innerHTML = '';
+      games.forEach(game => {
+        const hue = hashHue(game.name);
+        const letter = game.name.trim().charAt(0).toUpperCase();
+        const gradient = `linear-gradient(135deg,hsl(${hue},60%,42%),hsl(${(hue+45)%360},55%,32%))`;
+        const thumb = game.image
+          ? `<img src="${game.image}" alt="${game.name}" onerror="this.parentElement.innerHTML='<span class=\\'letter\\'>${letter}</span>'; this.parentElement.style.background='${gradient}';"/>`
+          : `<span class="letter">${letter}</span>`;
+        const thumbStyle = game.image ? '' : `style="background:${gradient}"`;
+
+        const card = document.createElement('div');
+        card.className = 'fav-game-card reveal visible';
+        card.innerHTML = `
+          <div class="fav-game-card-thumb" ${thumbStyle}>${thumb}</div>
+          <div class="fav-game-card-name">${game.name}</div>`;
+        card.addEventListener('click', () => openFavGameModal(game, gradient, letter));
+        scroll.appendChild(card);
+      });
+    } catch (err) {
+      console.warn('Could not load data/favorite-games.json — add that file to populate this section.', err);
+    }
+  }
+
+  function openFavGameModal(game, gradient, letter) {
+    favGameModalThumb.style.background = game.image ? '' : gradient;
+    favGameModalThumb.innerHTML = game.image
+      ? `<img src="${game.image}" alt="${game.name}" onerror="this.parentElement.innerHTML='<span class=\\'letter\\'>${letter}</span>'; this.parentElement.style.background='${gradient}';"/>`
+      : `<span class="letter">${letter}</span>`;
+
+    favGameModalName.textContent = game.name;
+
+    if (game.group) {
+      favGameModalGroupText.innerHTML = `<strong>Group:</strong> ${game.group}`;
+      if (game.groupUrl) {
+        favGameModalGroupBtn.href = game.groupUrl;
+        favGameModalGroupBtn.style.display = '';
+      } else {
+        favGameModalGroupBtn.style.display = 'none';
+      }
+      favGameModalGroupRow.classList.add('visible');
+    } else {
+      favGameModalGroupRow.classList.remove('visible');
+    }
+
+    if (game.gameUrl) {
+      favGameModalBtn.href = game.gameUrl;
+      favGameModalBtn.textContent = 'Play on Roblox →';
+      favGameModalBtn.style.pointerEvents = '';
+      favGameModalBtn.style.opacity = '';
+    } else {
+      favGameModalBtn.href = '#';
+      favGameModalBtn.textContent = 'Add gameUrl in data/favorite-games.json';
+      favGameModalBtn.style.pointerEvents = 'none';
+      favGameModalBtn.style.opacity = '0.5';
+    }
+
+    const achievements = game.achievements || [];
+    favGameModalAch.innerHTML = achievements.length
+      ? achievements.map(a => `
+          <div class="fav-achievement-item">
+            <span class="fav-achievement-icon">🏆</span>
+            <span>${a}</span>
+          </div>`).join('')
+      : `<p class="fav-achievement-empty">No achievements added yet — add some to the "achievements" array for this game in data/favorite-games.json.</p>`;
+
+    favGameModalOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeFavGameModal() {
+    favGameModalOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  favGameModalClose.addEventListener('click', closeFavGameModal);
+  favGameModalOverlay.addEventListener('click', e => {
+    if (e.target === favGameModalOverlay) closeFavGameModal();
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeFavGameModal();
+  });
+
+  /* =====================================================================
      EMOTES + ANIMATIONS — same price-grid pattern as avatars, but each
      card links straight to Roblox on click (no breakdown needed, the
      price is already shown right on the card). Data comes from
@@ -2660,7 +2871,7 @@
           <div class="mslabel">Upvotes</div>
         </div>
         <div class="modal-stat">
-          <div class="msval msval-down">👎 ${formatNumber(ls.down)}</div>
+          <div class="msval msval-down">👎 ${formatNumber(ls.down)} <span class="like-badge ${ls.cls}">${ls.pct}%</span></div>
           <div class="mslabel">Downvotes</div>
         </div>` : '';
       assetModalStats.innerHTML = `
@@ -2707,28 +2918,16 @@
     return { up, down, total, pct, cls };
   }
 
-  /* Small pill shown directly on the game thumbnail in the Testing grid. */
+  /* Small pill shown next to "View on Roblox" on the Testing grid card. */
   function buildLikeBadgeHtml(placeId) {
     const ls = likeStats(placeId);
     if (!ls) return '';
-    return `<span class="thumb-like-badge ${ls.cls}">👍 ${ls.pct}%</span>`;
-  }
-
-  function renderLikeBadge(placeId) {
-    const ls = likeStats(placeId);
-    if (!ls) {
-      assetModalLikeRow.classList.remove('visible');
-      return;
-    }
-    assetModalLikeBadge.className = `like-badge ${ls.cls}`;
-    assetModalLikeBadge.textContent = `👍 ${ls.pct}% liked`;
-    assetModalLikeRow.classList.add('visible');
+    return `<span class="like-badge ${ls.cls}">👍 ${ls.pct}%</span>`;
   }
 
   function refreshOpenModalIfNeeded() {
     if (currentModalPlaceId && assetModalOverlay.classList.contains('open')) {
       renderModalStats(currentModalPlaceId);
-      renderLikeBadge(currentModalPlaceId);
     }
   }
 
@@ -2780,6 +2979,7 @@
   loadGamesAndStats();
   loadProfile();
   loadAvatars();
+  loadFavoriteGames();
   loadCollection('emote', 'data/emotes.json');
   loadCollection('animation', 'data/animations.json');
 

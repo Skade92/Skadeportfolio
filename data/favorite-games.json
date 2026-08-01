@@ -1,0 +1,160 @@
+[
+  {
+    "name": "Island",
+    "image": "assets/favorite-games/Island.png",
+    "gameUrl": "",
+    "achievements": [
+      "20+ Slots",
+      "700+ Vending Machine Shop",
+      "Rich Player",
+      "Played Since Beta",
+      "Farm Builder",
+      "Map Demolisher",
+      "20+ vouches",
+      "2000+ Hours"
+    ]
+  },
+   {
+    "name": "Counter Blox",
+    "image": "assets/favorite-games/Counter Blox.png",
+    "gameUrl": "",
+    "achievements": [
+      "Play since xmas 2019",
+      "50k+ value",
+      "Wiki contributor"
+    ]
+  },
+  {
+    "name": "Bedwars",
+    "image": "assets/favorite-games/Bedwars.png",
+    "gameUrl": "",
+    "achievements": [
+      "Played since beta (got title)",
+      "200+ wins during beta",
+      "700+ wins",
+      "Best kit: Evelyn",
+      "Patron role",
+      "1000+ Hours"
+    ]
+  },
+    {
+    "name": "Rivals",
+    "image": "assets/favorite-games/Rivals.png",
+    "gameUrl": "",
+    "achievements": [
+      "200+ Level",
+      "100+ smurf level",
+      "All weapons",
+      "Skins on all weapons",
+      "Sniper Player",
+      "300+ hours"
+    ]
+  },
+  {
+    "name": "Bubble Gum Simulator",
+    "image": "assets/favorite-games/Bubble Gum Simulator.png",
+    "gameUrl": "",
+    "achievements": [
+      "Played during its release in 2018",
+      "1st secret at 1M egg hatched",
+      "500+ Hours"
+    ]
+  },
+  {
+    "name": "Jailbreak",
+    "image": "assets/favorite-games/Jailbreak.png",
+    "gameUrl": "",
+    "achievements": [
+      "Played after the beta",
+      "Got nearly every OG car",
+      "750M+ inventory value",
+      "OG Hypershift",
+      "OG Blue Drift during the 1st crew battles season",
+      "500+ Hours"
+    ]
+  },
+  {
+    "name": "Mad City",
+    "image": "assets/favorite-games/Mad City.png",
+    "gameUrl": "",
+    "achievements": [
+      "Got nearly every car",
+      "Obtained every boss limited car",
+      "Rich Player",
+      "300+ Hours"
+    ]
+  },
+  {
+    "name": "Bee Swarm Simulator",
+    "image": "assets/favorite-games/Bee Swarm Simulator.png",
+    "gameUrl": "",
+    "achievements": [
+      "Played back then in 2018",
+      "Level 20-21 Red Hive",
+      "Plenter of Plenty",
+      "No macro on main",
+      "Fuzzy + Guding Alts",
+      "Snowbear cub",
+      "2 smiley stickers",
+      "2500+ hours"
+    ]
+  },
+  {
+    "name": "Punch Simulator",
+    "image": "assets/favorite-games/Punch Simulator.png",
+    "gameUrl": "",
+    "achievements": [
+      "Played since its very release",
+      "3M+ egg opened",
+      "150+ UGC obtained",
+      "Staff for 3+ years",
+      "Wiki curator",
+      "Value contributor"
+    ]
+  },
+  {
+    "name": "World Zero",
+    "image": "assets/favorite-games/World Zero.png",
+    "gameUrl": "",
+    "achievements": [
+      "Was maxed with all the best equipment for every class",
+      "Cool exclusive items",
+      "300+ hours"
+    ]
+  },
+  {
+    "name": "Flood Escape",
+    "image": "assets/favorite-games/Flood Escape 2.png",
+    "gameUrl": "",
+    "achievements": []
+  },
+  {
+    "name": "Roblox Deathrun",
+    "image": "assets/favorite-games/Roblox Deathrun.png",
+    "gameUrl": "",
+    "achievements": [
+      "300+ match played",
+      "100+ match won",
+      "Played dozens of hours with my siblings"
+    ]
+  },
+  {
+    "name": "Resort Tycoon",
+    "image": "assets/favorite-games/Resort Tycoon.png",
+    "gameUrl": "",
+    "achievements": [
+      "24h+ hours",
+      "One of my favorite tycoons",
+      "Finished 100%"
+    ]
+  },
+  {
+    "name": "Pet Sim X",
+    "image": "assets/favorite-games/Pet Sim X.png",
+    "gameUrl": "",
+    "achievements": [
+      "Donated few Rainbow Storm Agonies",
+      "Played until RAP came"
+    ]
+  }
+]

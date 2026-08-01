@@ -1020,17 +1020,21 @@
   }
 
   .avatar-modal-thumb {
-    width: fit-content;        /* Shrinks the container to wrap snugly around the image */
+    width: 100%;
     max-width: 100%;
     border-radius: 14px;
     overflow: hidden;
     background: transparent;   /* Removes any underlying background color */
     margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .avatar-modal-thumb img { 
     display: block;
     max-height: 260px;          /* Adjust height to make the image as large as you want */
+    max-width: 100%;            /* Never wider than the panel — this is what stops wide/landscape images from getting clipped by overflow:hidden above */
     width: auto;               /* Allows width to scale naturally with the image ratio */
     height: auto;
     object-fit: contain; 

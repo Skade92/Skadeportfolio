@@ -1,372 +1,372 @@
 {
-  "generatedAt": "2026-10-19T12:09:19.878Z",
+  "generatedAt": "2026-10-26T12:16:23.457Z",
   "stats": {
     "14236123211": {
-      "visits": 120013747,
-      "playing": 109,
+      "visits": 120070983,
+      "playing": 74,
       "created": "2023-07-29T11:45:15.32Z",
-      "upVotes": 149875,
-      "downVotes": 15327
+      "upVotes": 149883,
+      "downVotes": 15329
     },
     "109509029034984": {
-      "visits": 112415997,
-      "playing": 3447,
+      "visits": 114882815,
+      "playing": 4000,
       "created": "2026-04-22T00:01:30.605Z",
-      "upVotes": 403983,
-      "downVotes": 4694
+      "upVotes": 406984,
+      "downVotes": 4790
     },
     "96947338677734": {
-      "visits": 127967205,
-      "playing": 70,
+      "visits": 128099362,
+      "playing": 60,
       "created": "2026-05-05T16:19:58.559Z",
-      "upVotes": 105933,
-      "downVotes": 8393
+      "upVotes": 105998,
+      "downVotes": 8402
     },
     "123318668892923": {
-      "visits": 20998576,
-      "playing": 50,
+      "visits": 21048202,
+      "playing": 51,
       "created": "2025-02-04T22:10:31.143Z",
-      "upVotes": 129984,
-      "downVotes": 3883
+      "upVotes": 130040,
+      "downVotes": 3889
     },
     "74511210941284": {
-      "visits": 183165685,
-      "playing": 1360,
+      "visits": 184244501,
+      "playing": 979,
       "created": "2026-06-26T11:57:30.71Z",
-      "upVotes": 244594,
-      "downVotes": 19506
+      "upVotes": 244732,
+      "downVotes": 19560
     },
     "125700405216363": {
-      "visits": 31965687,
-      "playing": 53,
+      "visits": 32043732,
+      "playing": 64,
       "created": "2026-04-07T15:30:19.951Z",
-      "upVotes": 68468,
-      "downVotes": 7237
+      "upVotes": 68486,
+      "downVotes": 7250
     },
     "138161219313147": {
-      "visits": 21771287,
-      "playing": 74,
+      "visits": 21811809,
+      "playing": 61,
       "created": "2026-03-04T13:10:28.657Z",
-      "upVotes": 261691,
-      "downVotes": 6139
+      "upVotes": 261886,
+      "downVotes": 6147
     },
     "121217335069513": {
-      "visits": 14255782,
-      "playing": 23,
+      "visits": 14320259,
+      "playing": 37,
       "created": "2026-05-19T00:53:41.939Z",
-      "upVotes": 29256,
-      "downVotes": 3210
+      "upVotes": 29296,
+      "downVotes": 3217
     },
     "101237818732976": {
-      "visits": 67162639,
-      "playing": 56,
+      "visits": 67214996,
+      "playing": 54,
       "created": "2024-08-20T08:49:22.757Z",
-      "upVotes": 82554,
+      "upVotes": 82560,
       "downVotes": 1835
     },
     "82338394608938": {
-      "visits": 17633467,
-      "playing": 75,
+      "visits": 17724354,
+      "playing": 85,
       "created": "2026-02-03T11:18:16.333Z",
-      "upVotes": 52993,
-      "downVotes": 3265
+      "upVotes": 53039,
+      "downVotes": 3273
     },
     "136723874788185": {
-      "visits": 27526339,
-      "playing": 23,
+      "visits": 27548307,
+      "playing": 22,
       "created": "2025-10-17T12:25:34.977Z",
-      "upVotes": 226083,
-      "downVotes": 10128
+      "upVotes": 226222,
+      "downVotes": 10151
     },
     "131372854229024": {
-      "visits": 10341527,
-      "playing": 34,
+      "visits": 10367826,
+      "playing": 33,
       "created": "2026-01-30T13:22:24.397Z",
-      "upVotes": 94407,
-      "downVotes": 1934
+      "upVotes": 94468,
+      "downVotes": 1941
     },
     "18767261433": {
-      "visits": 42434019,
-      "playing": 44,
+      "visits": 42453388,
+      "playing": 29,
       "created": "2024-08-02T15:09:38.35Z",
-      "upVotes": 57562,
-      "downVotes": 1340
+      "upVotes": 57558,
+      "downVotes": 1341
     },
     "111996161342573": {
-      "visits": 5801819,
-      "playing": 32,
+      "visits": 5827681,
+      "playing": 26,
       "created": "2026-05-19T03:08:35.544Z",
-      "upVotes": 16129,
-      "downVotes": 665
+      "upVotes": 16135,
+      "downVotes": 667
     },
     "104362292485763": {
-      "visits": 16337625,
-      "playing": 54,
+      "visits": 16399226,
+      "playing": 43,
       "created": "2026-06-13T14:19:15.548Z",
-      "upVotes": 6704,
-      "downVotes": 2655
+      "upVotes": 6737,
+      "downVotes": 2665
     },
     "108994823281421": {
-      "visits": 14604065,
-      "playing": 24,
+      "visits": 14668243,
+      "playing": 20,
       "created": "2024-10-10T15:29:20.727Z",
-      "upVotes": 6606,
-      "downVotes": 1607
+      "upVotes": 6617,
+      "downVotes": 1620
     },
     "114710767911422": {
-      "visits": 3133587,
-      "playing": 9,
+      "visits": 3138507,
+      "playing": 1,
       "created": "2026-05-05T21:15:59.246Z",
-      "upVotes": 2616,
-      "downVotes": 451
+      "upVotes": 2625,
+      "downVotes": 454
     },
     "76250497213806": {
-      "visits": 4230944,
-      "playing": 3,
+      "visits": 4235766,
+      "playing": 4,
       "created": "2026-01-06T13:07:22.487Z",
-      "upVotes": 23281,
-      "downVotes": 1124
+      "upVotes": 23285,
+      "downVotes": 1123
     },
     "108264999407756": {
-      "visits": 14131787,
-      "playing": 13,
+      "visits": 14141420,
+      "playing": 9,
       "created": "2025-04-27T14:59:40.363Z",
       "upVotes": 47048,
-      "downVotes": 1183
+      "downVotes": 1184
     },
     "110100139915012": {
-      "visits": 6826696,
-      "playing": 22,
+      "visits": 6878796,
+      "playing": 21,
       "created": "2026-03-14T01:59:46.99Z",
-      "upVotes": 19555,
-      "downVotes": 1412
+      "upVotes": 19603,
+      "downVotes": 1418
     },
     "92566878532403": {
-      "visits": 2834198,
-      "playing": 1,
+      "visits": 2837518,
+      "playing": 3,
       "created": "2026-05-31T12:25:03.036Z",
-      "upVotes": 11313,
-      "downVotes": 953
+      "upVotes": 11317,
+      "downVotes": 954
     },
     "82293894595394": {
-      "visits": 12606744,
-      "playing": 35,
+      "visits": 12618423,
+      "playing": 12,
       "created": "2025-05-23T17:07:58.767Z",
-      "upVotes": 52491,
+      "upVotes": 52514,
       "downVotes": 1389
     },
     "84512763896655": {
-      "visits": 7113000,
-      "playing": 3,
+      "visits": 7115808,
+      "playing": 1,
       "created": "2025-10-26T15:21:06.37Z",
-      "upVotes": 39075,
-      "downVotes": 1489
+      "upVotes": 39070,
+      "downVotes": 1488
     },
     "135707546762730": {
-      "visits": 4057195,
-      "playing": 12,
+      "visits": 4073375,
+      "playing": 29,
       "created": "2026-01-28T09:09:53.883Z",
-      "upVotes": 49222,
-      "downVotes": 1445
+      "upVotes": 49244,
+      "downVotes": 1443
     },
     "15234998219": {
-      "visits": 9449296,
-      "playing": 1,
+      "visits": 9449365,
+      "playing": 0,
       "created": "2023-11-01T15:32:58.273Z",
-      "upVotes": 18501,
-      "downVotes": 2266
+      "upVotes": 18499,
+      "downVotes": 2265
     },
     "93988914186794": {
-      "visits": 11159304,
+      "visits": 11159354,
       "playing": 0,
       "created": "2025-04-26T08:53:26.473Z",
-      "upVotes": 33206,
+      "upVotes": 33203,
       "downVotes": 889
     },
     "124942503684833": {
-      "visits": 1546792,
+      "visits": 1546909,
       "playing": 0,
       "created": "2025-08-01T09:03:59.897Z",
-      "upVotes": 4910,
+      "upVotes": 4909,
       "downVotes": 169
     },
     "74176548556660": {
-      "visits": 4616974,
-      "playing": 2,
+      "visits": 4621406,
+      "playing": 5,
       "created": "2025-07-20T11:13:49.58Z",
-      "upVotes": 34790,
-      "downVotes": 808
+      "upVotes": 34786,
+      "downVotes": 809
     },
     "106656026556805": {
-      "visits": 1214530,
-      "playing": 13,
+      "visits": 1220593,
+      "playing": 4,
       "created": "2026-06-02T17:01:31.44Z",
-      "upVotes": 963,
-      "downVotes": 456
+      "upVotes": 968,
+      "downVotes": 458
     },
     "85163385731998": {
-      "visits": 3907683,
-      "playing": 3,
+      "visits": 3918009,
+      "playing": 5,
       "created": "2025-02-28T10:07:55.067Z",
-      "upVotes": 8716,
-      "downVotes": 430
+      "upVotes": 8723,
+      "downVotes": 431
     },
     "16722784102": {
-      "visits": 6546488,
+      "visits": 6546622,
       "playing": 0,
       "created": "2024-03-12T13:47:32.64Z",
-      "upVotes": 6951,
+      "upVotes": 6950,
       "downVotes": 857
     },
     "15445888182": {
-      "visits": 6522631,
+      "visits": 6522658,
       "playing": 0,
       "created": "2023-11-24T12:26:28.4Z",
       "upVotes": 6400,
       "downVotes": 1113
     },
     "119583587549416": {
-      "visits": 1681173,
+      "visits": 1683021,
       "playing": 0,
       "created": "2025-11-19T10:08:52.537Z",
-      "upVotes": 3797,
+      "upVotes": 3796,
       "downVotes": 235
     },
     "17327880884": {
-      "visits": 4746861,
+      "visits": 4746883,
       "playing": 0,
       "created": "2024-04-29T10:21:12.17Z",
       "upVotes": 1251,
       "downVotes": 560
     },
     "91986852011820": {
-      "visits": 1387527,
+      "visits": 1388500,
       "playing": 0,
       "created": "2025-03-08T14:39:03.673Z",
-      "upVotes": 6958,
-      "downVotes": 291
+      "upVotes": 6964,
+      "downVotes": 292
     },
     "123446017566246": {
-      "visits": 5094516,
-      "playing": 9,
+      "visits": 5102760,
+      "playing": 8,
       "created": "2026-05-28T04:03:40.502Z",
-      "upVotes": 10199,
-      "downVotes": 646
+      "upVotes": 10205,
+      "downVotes": 648
     },
     "82404745457132": {
-      "visits": 543149,
+      "visits": 543402,
       "playing": 0,
       "created": "2026-06-06T21:04:24.909Z",
-      "upVotes": 861,
+      "upVotes": 860,
       "downVotes": 122
     },
     "110140945302716": {
-      "visits": 2288600,
+      "visits": 2288611,
       "playing": 0,
       "created": "2025-05-01T13:02:40.77Z",
-      "upVotes": 4719,
+      "upVotes": 4718,
       "downVotes": 247
     },
     "8851519587": {
-      "visits": 1681096,
+      "visits": 1681105,
       "playing": 0,
       "created": "2022-02-17T18:59:30.46Z",
       "upVotes": 980,
       "downVotes": 310
     },
     "88960932513725": {
-      "visits": 276333,
+      "visits": 276420,
       "playing": 0,
       "created": "2026-06-08T13:00:17.533Z",
       "upVotes": 675,
       "downVotes": 44
     },
     "95635663201910": {
-      "visits": 1579860,
+      "visits": 1579864,
       "playing": 0,
       "created": "2025-08-12T14:54:31.71Z",
-      "upVotes": 6369,
+      "upVotes": 6366,
       "downVotes": 220
     },
     "80659322962641": {
-      "visits": 414977,
-      "playing": 2,
+      "visits": 416641,
+      "playing": 3,
       "created": "2026-04-08T09:46:53.273Z",
-      "upVotes": 2436,
+      "upVotes": 2438,
       "downVotes": 136
     },
     "138493013273833": {
-      "visits": 927365,
+      "visits": 927369,
       "playing": 0,
       "created": "2025-09-22T10:50:32.823Z",
       "upVotes": 3087,
       "downVotes": 81
     },
     "18889420065": {
-      "visits": 1416933,
+      "visits": 1416935,
       "playing": 0,
       "created": "2024-08-10T13:32:17.513Z",
-      "upVotes": 10555,
+      "upVotes": 10553,
       "downVotes": 377
     },
     "86269990981198": {
-      "visits": 290072,
-      "playing": 1,
+      "visits": 291887,
+      "playing": 0,
       "created": "2026-05-04T08:24:13.668Z",
       "upVotes": 156,
       "downVotes": 66
     },
     "101578669319913": {
-      "visits": 997016,
+      "visits": 997022,
       "playing": 0,
       "created": "2025-06-11T10:12:13.563Z",
       "upVotes": 2060,
       "downVotes": 141
     },
     "103485016129849": {
-      "visits": 796542,
+      "visits": 797638,
       "playing": 0,
       "created": "2026-03-23T10:22:34.518Z",
-      "upVotes": 457,
+      "upVotes": 459,
       "downVotes": 92
     },
     "123571290918498": {
-      "visits": 232080,
+      "visits": 233034,
       "playing": 2,
       "created": "2026-03-27T10:23:05.836Z",
-      "upVotes": 2306,
-      "downVotes": 70
+      "upVotes": 2326,
+      "downVotes": 71
     },
     "113768144993878": {
-      "visits": 155090,
+      "visits": 155108,
       "playing": 0,
       "created": "2026-06-18T18:58:48.004Z",
       "upVotes": 158,
       "downVotes": 47
     },
     "124172644763532": {
-      "visits": 537273,
+      "visits": 537292,
       "playing": 0,
       "created": "2025-09-01T14:02:31.89Z",
       "upVotes": 8586,
       "downVotes": 222
     },
     "84714424509861": {
-      "visits": 447003,
-      "playing": 4,
+      "visits": 450481,
+      "playing": 3,
       "created": "2026-03-31T09:45:24.278Z",
-      "upVotes": 1667,
+      "upVotes": 1679,
       "downVotes": 157
     },
     "136004659625626": {
-      "visits": 447324,
+      "visits": 447334,
       "playing": 0,
       "created": "2025-09-23T12:17:14.337Z",
       "upVotes": 1156,
       "downVotes": 125
     },
     "121799219960767": {
-      "visits": 201213,
+      "visits": 201270,
       "playing": 0,
       "created": "2026-02-26T19:09:21.547Z",
       "upVotes": 74,
@@ -380,14 +380,14 @@
       "downVotes": 64
     },
     "118065750558002": {
-      "visits": 587419,
-      "playing": 141,
+      "visits": 613699,
+      "playing": 1,
       "created": "2026-06-27T20:09:58.66Z",
-      "upVotes": 2745,
-      "downVotes": 115
+      "upVotes": 2755,
+      "downVotes": 116
     },
     "125661369726244": {
-      "visits": 306396,
+      "visits": 306403,
       "playing": 0,
       "created": "2025-04-29T09:02:18.473Z",
       "upVotes": 4929,
@@ -401,46 +401,53 @@
       "downVotes": 40
     },
     "116878418741053": {
-      "visits": 268802,
+      "visits": 268804,
       "playing": 0,
       "created": "2025-09-23T08:16:30.307Z",
       "upVotes": 550,
       "downVotes": 32
     },
     "102015201029580": {
-      "visits": 239823,
+      "visits": 239826,
       "playing": 0,
       "created": "2026-03-17T09:41:00.667Z",
       "upVotes": 447,
       "downVotes": 40
     },
     "18544840205": {
-      "visits": 227557,
+      "visits": 227560,
       "playing": 0,
       "created": "2024-07-18T10:00:31.683Z",
-      "upVotes": 2688,
+      "upVotes": 2687,
       "downVotes": 103
     },
     "103620165045362": {
-      "visits": 607418,
+      "visits": 609512,
       "playing": 1,
       "created": "2026-06-06T11:42:20.726Z",
-      "upVotes": 1457,
+      "upVotes": 1458,
       "downVotes": 70
     },
+    "136316557349494": {
+      "visits": 91895,
+      "playing": 0,
+      "created": "2026-05-30T20:04:32.617Z",
+      "upVotes": 67,
+      "downVotes": 32
+    },
     "95413092530244": {
-      "visits": 88053,
+      "visits": 88060,
       "playing": 0,
       "created": "2026-05-09T15:14:24.878Z",
       "upVotes": 54,
       "downVotes": 90
     },
     "83836697526815": {
-      "visits": 133233,
-      "playing": 0,
+      "visits": 140002,
+      "playing": 3,
       "created": "2024-09-14T17:01:04.403Z",
-      "upVotes": 104,
-      "downVotes": 78
+      "upVotes": 105,
+      "downVotes": 79
     },
     "120855726347432": {
       "visits": 38851,
@@ -450,35 +457,35 @@
       "downVotes": 95
     },
     "76764205789199": {
-      "visits": 32847,
+      "visits": 32863,
       "playing": 0,
       "created": "2026-01-17T00:00:58.577Z",
       "upVotes": 63,
       "downVotes": 8
     },
     "94415725482909": {
-      "visits": 14528,
+      "visits": 14573,
       "playing": 0,
       "created": "2026-06-18T06:28:29.897Z",
       "upVotes": 120,
       "downVotes": 59
     },
     "132841921304197": {
-      "visits": 1204755,
+      "visits": 1206915,
       "playing": 2,
       "created": "2026-07-01T19:24:00.724Z",
-      "upVotes": 1977,
+      "upVotes": 1979,
       "downVotes": 130
     },
     "133511556363377": {
-      "visits": 51710,
+      "visits": 51769,
       "playing": 0,
       "created": "2026-07-06T09:13:11.047Z",
       "upVotes": 69,
       "downVotes": 7
     },
     "113074596291053": {
-      "visits": 9066,
+      "visits": 9073,
       "playing": 0,
       "created": "2026-06-17T04:00:56.207Z",
       "upVotes": 24,
@@ -499,7 +506,7 @@
       "downVotes": 7
     },
     "83008547122513": {
-      "visits": 27532,
+      "visits": 27732,
       "playing": 0,
       "created": "2026-06-13T19:29:50.568Z",
       "upVotes": 57,
@@ -513,7 +520,7 @@
       "downVotes": 2
     },
     "114994510039413": {
-      "visits": 1088,
+      "visits": 1091,
       "playing": 0,
       "created": "2025-12-03T16:40:45.307Z",
       "upVotes": 3,
@@ -527,18 +534,18 @@
       "downVotes": 0
     },
     "113033806230936": {
-      "visits": 410883,
-      "playing": 0,
+      "visits": 411572,
+      "playing": 3,
       "created": "2026-05-30T16:45:08.084Z",
-      "upVotes": 1222,
+      "upVotes": 1223,
       "downVotes": 240
     },
     "121582128546193": {
-      "visits": 9367617,
-      "playing": 29,
+      "visits": 9389279,
+      "playing": 15,
       "created": "2026-05-28T16:51:06.478Z",
-      "upVotes": 26830,
-      "downVotes": 1270
+      "upVotes": 26839,
+      "downVotes": 1273
     },
     "135057009844111": {
       "visits": 372,
@@ -548,14 +555,14 @@
       "downVotes": 1
     },
     "137221954062466": {
-      "visits": 3894,
+      "visits": 3895,
       "playing": 0,
       "created": "2026-06-05T17:09:46.473Z",
       "upVotes": 29,
       "downVotes": 7
     },
     "135335481010813": {
-      "visits": 1033,
+      "visits": 1034,
       "playing": 0,
       "created": "2026-06-12T00:24:19.163Z",
       "upVotes": 5,
@@ -569,11 +576,11 @@
       "downVotes": 0
     },
     "100146733809259": {
-      "visits": 396785,
-      "playing": 6,
+      "visits": 398255,
+      "playing": 0,
       "created": "2026-06-13T20:04:40.984Z",
-      "upVotes": 2466,
-      "downVotes": 256
+      "upVotes": 2471,
+      "downVotes": 257
     },
     "140002477845178": {
       "visits": 2463,
@@ -590,14 +597,14 @@
       "downVotes": 0
     },
     "70701310349879": {
-      "visits": 485804,
-      "playing": 0,
+      "visits": 489740,
+      "playing": 6,
       "created": "2026-05-30T13:21:48.006Z",
-      "upVotes": 9745,
+      "upVotes": 9746,
       "downVotes": 545
     },
     "76024316531370": {
-      "visits": 317198,
+      "visits": 317832,
       "playing": 0,
       "created": "2026-07-04T09:09:10.893Z",
       "upVotes": 2165,
@@ -611,46 +618,46 @@
       "downVotes": 5
     },
     "123985569433618": {
-      "visits": 7156,
-      "playing": 1,
+      "visits": 7523,
+      "playing": 0,
       "created": "2026-07-01T11:23:38.012Z",
       "upVotes": 9,
       "downVotes": 7
     },
     "123346546383827": {
-      "visits": 50463,
-      "playing": 1,
+      "visits": 50494,
+      "playing": 0,
       "created": "2026-05-19T15:43:22.737Z",
       "upVotes": 50,
       "downVotes": 53
     },
     "90554449309730": {
-      "visits": 430,
+      "visits": 431,
       "playing": 0,
       "created": "2025-11-14T01:38:44.497Z",
       "upVotes": 7,
       "downVotes": 0
     },
     "139422634028895": {
-      "visits": 570970,
-      "playing": 3,
+      "visits": 580053,
+      "playing": 4,
       "created": "2026-06-25T12:26:52.193Z",
-      "upVotes": 758,
-      "downVotes": 106
+      "upVotes": 768,
+      "downVotes": 110
     },
     "89610866334756": {
-      "visits": 362998,
-      "playing": 1,
+      "visits": 368861,
+      "playing": 5,
       "created": "2026-07-08T00:24:41.612Z",
-      "upVotes": 1455,
-      "downVotes": 143
+      "upVotes": 1456,
+      "downVotes": 145
     },
     "138064211947107": {
-      "visits": 21839268,
-      "playing": 88,
+      "visits": 21887962,
+      "playing": 55,
       "created": "2026-03-30T08:18:14.22Z",
-      "upVotes": 240729,
-      "downVotes": 5959
+      "upVotes": 240926,
+      "downVotes": 5972
     },
     "125892864533595": {
       "visits": 26247,
@@ -660,17 +667,17 @@
       "downVotes": 73
     },
     "101426709628287": {
-      "visits": 637514,
+      "visits": 637953,
       "playing": 0,
       "created": "2026-04-12T03:23:39.581Z",
-      "upVotes": 175,
+      "upVotes": 177,
       "downVotes": 135
     },
     "117539983954080": {
-      "visits": 262734,
-      "playing": 6,
+      "visits": 264762,
+      "playing": 1,
       "created": "2026-07-13T22:25:08.795Z",
-      "upVotes": 1112,
+      "upVotes": 1121,
       "downVotes": 63
     }
   }
